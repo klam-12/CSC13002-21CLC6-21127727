@@ -17,9 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from app.views import *
+from tour.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',ReactView.as_view(), name="anything"),
     path('hello/',ReactView.as_view()),
+    path('tour', name='viewTour')
 ]
