@@ -13,4 +13,7 @@ class TourView(APIView):
         tours = Tour.objects.all()
         tour_data = TourSerializer(tours, many=True)
         return Response(data=tour_data.data,status=status.HTTP_200_OK)
+    
+    def getDetail():
+        return 1
 
