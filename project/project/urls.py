@@ -18,10 +18,12 @@ from django.contrib import admin
 from django.urls import path, include
 from app.views import *
 from tour.views import *
+from tour.urls import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',ReactView.as_view(), name="anything"),
+    #path('',ReactView.as_view(), name="anything"),
     path('hello/',ReactView.as_view()),
-    path('tour', name='viewTour')
+    # path('tour/',View.as_view()),
+    path ('tour/',include('tour.urls'))
 ]
