@@ -9,4 +9,8 @@ urlpatterns = [
     path('location',LocationView.as_view()),
     path('picture',PitureView.as_view()),
     path('schedule',ScheduleView.as_view()),
+    path('testPost',views.tutorial),
+    path('recommend', views.recommend_view),
+    path('search',views.search_tour_view)
+  
 ]   

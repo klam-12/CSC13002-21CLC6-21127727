@@ -49,14 +49,14 @@ class Picture(models.Model):
 
 class Schedule(models.Model):
   id=models.AutoField(primary_key=True)
-  tour_startdate_id= models.ForeignKey(TourStartDate,on_delete=models.CASCADE,related_name="schedule_tourstartdateid")
+  tour_id= models.ForeignKey(Tour,on_delete=models.CASCADE,related_name='schedule_tourid')
   date=models.DateField(null=True)
   activity=models.CharField(max_length=500,null=True)
   location_id=models.ForeignKey(Location,on_delete=models.CASCADE,related_name='schedule_locationid')
   class Meta:
     constraints=[
       models.UniqueConstraint(
-        fields=['tour_startdate_id','date'],name='unique_migration_schedule'
+        fields=['tour_id','date'],name='unique_migration_schedule'
       )
     ]  
 

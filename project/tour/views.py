@@ -12,6 +12,8 @@ from rest_framework import generics
 from rest_framework.decorators import api_view
 # Create your views here.
 from  app.serializer import *
+from django.db.models import Avg
+from datetime import datetime
     
 class TourStartDateView(APIView):
     def get(self,request):
@@ -55,6 +57,16 @@ class PitureView(APIView):
         pictures=Picture.objects.all()
         picture_data=PictureSerializer(pictures,many=True)
         return Response(data=picture_data.data,status=status.HTTP_200_OK)
+
+
+# class reactRequestView():
+#     def post(self, request, * args, **kwargs):
+#         data={
+#            'id': request.data.get()
+            
+#         }
+
+
 @api_view(['GET','POST','DELETE'])
 def tutorial(request):
     if request.method =='POST':
@@ -64,3 +76,43 @@ def tutorial(request):
             tutorial_serializer.save()
             return JsonResponse(tutorial_serializer.data,status=status.HTTP_201_CREATED )
         return JsonResponse(tutorial_serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+        
+@api_view(['GET'])
+def recommend_view(request):
+    registers = TourStartDate.objects.values('tour_id').annotate(total_stars=Avg('register_tourstartdateid__star')).order_by('-total_stars')[:4]
+    list_tour_id = []
+    for register in registers:
+        list_tour_id.append(register['tour_id'])
+    tours = Tour.objects.filter(id__in=list_tour_id).all()
+    tour_data = RecommendTourSerializer(tours, many=True)
+    return Response(data=tour_data.data,status=status.HTTP_200_OK)
+
+import pandas as pb
+@api_view(['GET'])
+def search_tour_view(request):
+    order_end_location=request.GET.get('end_location')
+    order_start_date=request.GET.get('start_date')
+
+    #get index of Location 
+    Locations=Location.objects.filter(location_name__icontains=order_end_location).all()
+    list_location=[]
+    for location in Locations:
+        list_location.append(location.id)
+    tours_startDates= Tour.objects.filter(end_location_Id__in=list_location).all()
+    
+    order_start_date_obj=datetime.strptime(order_start_date,'%Y-%m-%d').date()
+    start_date=TourStartDate.objects.filter(start_date=order_start_date_obj).all()
+    list_tour_id=set()
+    for sd in start_date:
+        if sd.tour_id not in list_tour_id:
+            list_tour_id.add(sd.tour_id.id)
+    for tour in tours_startDates:
+        if tour.id not in list_tour_id:
+            list_tour_id.add(tour.id)
+    tours=Tour.objects.filter(id__in=list_tour_id).all()
+    tour_data=SearchSerializer(tours,many=True)
+    return Response(data=tour_data.data,status=status.HTTP_200_OK)
+    
+    
+    
+
