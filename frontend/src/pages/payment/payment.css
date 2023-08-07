@@ -1,0 +1,40 @@
+.payment{
+    padding: 30px 120px 30px 120px;
+}
+.payment-title{
+    color: #FDFDFD;
+    background-color: #5D9C59;
+    padding: 10px;
+    text-align: center;
+    margin:0;
+}
+.payment-info-title{
+    color: #5D9C59;
+    background-color: #EBEBEB;
+    padding: 10px 82px;
+    margin:0;
+}
+.payment-info-container{
+    padding: 10px 102px; 
+    background-color: #F7F7F7;
+}
+.payment-price{
+    text-align: right;
+    padding: 10px 82px;
+    font-weight: bold;
+    margin:0;
+    color: #4F4F4F;
+    background-color: #EBEBEB;
+}
+.total-price-title{
+    padding: 0;
+    margin: 0;
+}
+.total-price{
+    text-align: right;
+    font-weight: bold;
+    font-size: 20px;
+    color: #5D9C59;
+    padding: 0;
+    margin: 0;
+}

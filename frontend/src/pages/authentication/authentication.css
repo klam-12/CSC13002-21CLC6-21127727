@@ -1,0 +1,15 @@
+.authentication-container{
+    background: linear-gradient(135deg, #5D9C59 0%, rgba(93, 156, 89, 0.00) 100%);
+    padding: 60px 120px 60px 120px;
+}
+.authentication-container img{
+    margin: 120px 0px;
+}
+.sign-up-card{
+    background-color: #FFFFFF;
+    text-align: center;
+    padding: 30px 32px 30px 32px;
+  }
+  .sign-up-title{
+    color: #5D9C59;
+  }
