@@ -46,7 +46,7 @@ class Schedule(models.Model):
   heading=models.CharField(max_length=50, null=True)
   activity=models.CharField(max_length=500,null=True)
   picture=models.ImageField(null=True)
-  
+
   class Meta:
     constraints=[
       models.UniqueConstraint(

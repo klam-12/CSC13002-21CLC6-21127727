@@ -111,3 +111,4 @@ class DetailTourSerializer(serializers.ModelSerializer):
     for schedule in schedules:
       result.append({"Heading":schedule.heading,"Activity":schedule.activity})
     return result
+  
