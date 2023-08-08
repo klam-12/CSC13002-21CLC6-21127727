@@ -11,6 +11,13 @@ urlpatterns = [
     path('schedule',ScheduleView.as_view()),
     path('testPost',views.tutorial),
     path('recommend', views.recommend_view),
+<<<<<<< HEAD
     path('search',views.search_tour_view)
   
 ]   
+=======
+    path('search',views.search_tour_view),
+    path('detail/<str:id>/',views.detail_tour_view)
+    
+]   
+>>>>>>> feature/detail_tour

@@ -52,7 +52,12 @@ class Schedule(models.Model):
   tour_id= models.ForeignKey(Tour,on_delete=models.CASCADE,related_name='schedule_tourid')
   date=models.DateField(null=True)
   activity=models.CharField(max_length=500,null=True)
+<<<<<<< HEAD
   location_id=models.ForeignKey(Location,on_delete=models.CASCADE,related_name='schedule_locationid')
+=======
+  picture=models.ImageField(null=True)
+
+>>>>>>> feature/detail_tour
   class Meta:
     constraints=[
       models.UniqueConstraint(

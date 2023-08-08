@@ -89,4 +89,36 @@ class SearchSerializer(serializers.ModelSerializer):
     data= obj.schedule_tourid.all()
     return data[0].activity 
     
+<<<<<<< HEAD
     
+=======
+class DetailTourSerializer(serializers.ModelSerializer):
+  from_location=serializers.SerializerMethodField()
+  to_location=serializers.SerializerMethodField()
+  start_date=serializers.SerializerMethodField()
+  vehicle_name=serializers.SerializerMethodField()
+  heading_activity_picture=serializers.SerializerMethodField()
+  class Meta:
+    model=Tour
+    fields =['tour_name','price','time','detail','from_location','to_location','main_picture','start_date','vehicle_name','heading_activity_picture']
+  def get_from_location(self, obj):
+    return obj.start_location_Id.location_name
+    
+  def get_to_location(self, obj):
+    return obj.end_location_Id.location_name
+  def get_start_date(self,obj):
+    tourstartdates = obj.tourstartdate_tourid.all()
+    list_start_date=[]
+    for tourstartdate in tourstartdates:
+      list_start_date.append(tourstartdate.start_date)
+    return list_start_date
+  def get_vehicle_name(self,obj):
+    return obj.vehicle_Id.vehicle_name
+  def get_heading_activity_picture(self,obj):
+    schedules=obj.schedule_tourid.all()
+    result=[]
+    for schedule in schedules:
+      result.append({"Heading":schedule.heading,"Activity":schedule.activity})
+    return result
+  
+>>>>>>> feature/detail_tour
