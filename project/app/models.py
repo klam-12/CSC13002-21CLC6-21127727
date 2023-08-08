@@ -53,6 +53,8 @@ class Schedule(models.Model):
   date=models.DateField(null=True)
   activity=models.CharField(max_length=500,null=True)
   location_id=models.ForeignKey(Location,on_delete=models.CASCADE,related_name='schedule_locationid')
+  picture=models.ImageField(null=True)
+
   class Meta:
     constraints=[
       models.UniqueConstraint(

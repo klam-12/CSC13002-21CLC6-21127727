@@ -114,5 +114,10 @@ def search_tour_view(request):
     return Response(data=tour_data.data,status=status.HTTP_200_OK)
     
     
+@api_view(['GET'])
+def detail_tour_view(request,id):
+    tours=Tour.objects.filter(id=id).all()
+    tour_data=DetailTourSerializer(tours,many=True)
+    
     
 

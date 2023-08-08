@@ -13,4 +13,5 @@ urlpatterns = [
     path('recommend', views.recommend_view),
     path('search',views.search_tour_view)
   
+    
 ]   
