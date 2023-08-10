@@ -1,14 +1,15 @@
 import SearchTourCard from "../../components/searchTourCard";
+import '../searchPage.css'
 
 
 const SearchTours = () => {
     return (
-        <div>
-            <SearchTourCard></SearchTourCard>
-            <SearchTourCard></SearchTourCard>
-            <SearchTourCard></SearchTourCard>
-            <SearchTourCard></SearchTourCard>
-            <SearchTourCard></SearchTourCard>
+        <div className="search-tour-section">
+            <div className="search-tour"><SearchTourCard></SearchTourCard></div>
+            <div className="search-tour"><SearchTourCard></SearchTourCard></div>
+            <div className="search-tour"><SearchTourCard></SearchTourCard></div>
+            <div className="search-tour"><SearchTourCard></SearchTourCard></div>
+            <div className="search-tour"><SearchTourCard></SearchTourCard></div>
        </div>
     );
 };

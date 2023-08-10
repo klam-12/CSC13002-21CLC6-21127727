@@ -2,6 +2,7 @@ import NavBar from '../../components/navBar/navBar';
 import Footer from '../../components/footer/footer';
 import PaymentInfo from './sections/paymentInfo';
 import PaymentMethod from './sections/paymentMethod';
+import PaymentButton from './sections/paymentButton';
 
 const Payment = () => {
     return (
@@ -13,6 +14,7 @@ const Payment = () => {
             </div>
             <br></br>
             <PaymentMethod></PaymentMethod>
+            <PaymentButton></PaymentButton>
             <Footer></Footer>
         </div>
     );

@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     font-family: 'Quicksand';
-    padding: 30px 120px 30px 120px;
   }
   .search-tour-card{
     display: flex;

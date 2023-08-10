@@ -3,7 +3,6 @@
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     text-align: center;
-
     display: flex;
     width: 286px;
     height: 484px;
@@ -20,6 +19,7 @@
   /* Add some padding inside the card container */
   .tour-card-container {
     padding: 14px;
+    padding-bottom: 0px;
     width: 100%;
   }
 
@@ -43,9 +43,16 @@ hr.solid {
 h4{
   color: #5D9C59;
 }
-
+.tour-price-container{
+  padding: 14px;
+  padding-top: 0px;
+}
 .tour-info{
-font-size: 13px;
+  font-size: 13px;
+}
+.tour-info-price{
+  font-size: 13px;
+  vertical-align: -webkit-baseline-middle;
 }
 .tour-price{
   font-size: 14px;
