@@ -62,7 +62,7 @@ class NewUser(AbstractBaseUser, PermissionsMixin):
         help_text=_(
             "Min 3 char and max 30 char. No special characters allowed"
         ),
-        validators=[password_validator],)
+        validators=[],)
     full_name = models.CharField(max_length=150, blank=True)
     ROLE=(
       ("TG","Hướng dẫn viên"),
@@ -82,7 +82,7 @@ class NewUser(AbstractBaseUser, PermissionsMixin):
         help_text=_(
               "Số điện thoại là số có 10 chữ số"
           ),
-          validators=[phone_validator],)
+          validators=[],)
     avatar = models.FileField(null=True)
   
     start_date = models.DateTimeField(default=timezone.now)

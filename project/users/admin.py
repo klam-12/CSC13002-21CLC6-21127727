@@ -14,7 +14,7 @@ class UserAdminConfig(UserAdmin):
     list_display = ('email', 'username', 'full_name',
                     'is_active', 'is_staff')
     fieldsets = (
-        (None, {'fields': ('email', 'username', 'full_name',)}),
+        (None, {'fields': ['email', 'username', 'full_name',]}),
         ('Permissions', {'fields': ('is_staff', 'is_active')}),
         ('Personal', {'fields': ('about',)}),
     )
@@ -24,9 +24,9 @@ class UserAdminConfig(UserAdmin):
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('email', 'username', 'full_name', 'password1', 'password2', 'is_active', 'is_staff')}
+            'fields':['email', 'username', 'full_name', 'password1', 'password2', 'is_active', 'is_staff']}
          ),
     )
 
 
-admin.site.register(NewUser, UserAdminConfig)
+admin.site.register(NewUser)
