@@ -1,15 +1,25 @@
 import '../payment.css'
 
 const PaymentInfo = () => {
+    const name = "Tran Minh Anh"
     return (
     <div>
         <section className="payment-info-section">
             <h2 className="payment-title">Thông tin đặt tour</h2>
             <h3 className="payment-info-title">Thông tin khách hàng</h3>
             <div className="payment-info-container">
-                <p>Họ và tên:</p>
-                <p>Số điện thoại:</p>
-                <p>Email</p>
+                <div className="payment-info-items">
+                <p className="payment-info-item" style={{display: 'inline'}}>Họ và tên: </p>
+                <p className="payment-info-item" style={{position: 'relative',display: 'inline'}}>Tran Minh Anh</p>
+                </div>
+                <div>
+                <p style={{display: 'inline-block'}}>Số điện thoại: </p>
+                <p style={{position: 'relative',display: 'inline-block'}}>0909123456</p>
+                </div>
+                <div>
+                <p style={{display: 'inline'}}>Email: </p>
+                <p style={{position: 'relative',display: 'inline'}}>tranminhanh1912@gmail.com</p>
+                </div>
             </div>
             <h3 className="payment-info-title">Thông tin tour</h3>
             <div className="payment-info-container">

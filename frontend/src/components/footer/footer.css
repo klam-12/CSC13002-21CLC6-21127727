@@ -75,10 +75,6 @@
         font-size: 15px;
     }
 
-    .address-text {
-        font-size: 14px;
-    }
-
     .img-dc {
         width: 13.99px;
         height: 17.98px !important;
@@ -171,7 +167,9 @@
     margin-bottom: 30px;
     margin-right: 10px;
 }
-
+.mail-text{
+    margin: 0;
+}
 .img-mail {
     top: 55px;
     height: 25px;

@@ -13,7 +13,7 @@ const AboutUs = () => {
     return (
         <div>
             <section className="homepage-section" id="aboutUs">
-                <h1>About us</h1>
+                <h1>Về chúng tôi</h1>
                 <Grid container spacing={4}>
                     <Grid item xs={5}>
                         <img src={test} alt='test'/>

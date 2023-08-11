@@ -1,6 +1,7 @@
 import './tourStyles.css'
 import test from '../../../assets/images/test.jpg'
 import { Grid } from '@mui/material';
+import Button from '../../../components/button/button';
 
 const TourDetailInfo = () => {
     return (
@@ -25,14 +26,10 @@ const TourDetailInfo = () => {
                 <Grid item xs={3}>
                     <p className="tour-info-title" style={{fontWeight: '600'}}>NGÀY KHỞI HÀNH</p>
                     <br></br>
-                    <p>10/11/2023</p>
-                    <br></br>
                     <p>20/12/2023</p>
                 </Grid>
                 <Grid item xs={3}>
                     <p className="tour-info-title" style={{fontWeight: '600'}}>MÃ TOUR</p>
-                    <br></br>
-                    <p>STN084-2023-01311</p>
                     <br></br>
                     <p>STN084-2023-01312</p>
                 </Grid>
@@ -40,15 +37,11 @@ const TourDetailInfo = () => {
                     <p className="tour-info-title" style={{fontWeight: '600'}}>GIÁ VÉ (VND)</p>
                     <br></br>
                     <p>8.000.000</p>
-                    <br></br>
-                    <p>8.000.000</p>
                 </Grid>
                 <Grid item xs={3}>
-                    <p></p>
                     <br></br>
-                    <p>Button</p>
                     <br></br>
-                    <p>Button</p>
+                    <Button content="Đặt ngay"></Button>
                 </Grid>
             </Grid>
             <h2 className="tour-info-title">Description</h2>

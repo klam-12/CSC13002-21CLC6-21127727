@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import NavBar from '../../components/navBar/navBar';
 import HeroBanner from './sections/heroBanner';
 import AboutUs from './sections/aboutUs';
-import VacationPackages from './sections/vacationPackages';
 import FeedBack from './sections/feedBack';
 import Footer from '../../components/footer/footer';
+import HotTours from './sections/hotTours';
 
 const HomePage = () => {
     return (
@@ -13,7 +13,7 @@ const HomePage = () => {
             <HeroBanner/>
             {/* <SearchBar></SearchBar> */}
             <AboutUs></AboutUs>
-            <VacationPackages></VacationPackages>
+            <HotTours></HotTours>
             <FeedBack></FeedBack>
             <Footer></Footer>
         </div>

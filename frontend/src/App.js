@@ -13,11 +13,11 @@ function App() {
       {/* <HomePage></HomePage> */}
       {/* <DetailTour></DetailTour> */}
       {/* <SearchPage></SearchPage> */}
-      {/* <Payment></Payment> */}
+      <Payment></Payment>
 
 
-      
-      <SignUp></SignUp>
+
+      {/* <SignUp></SignUp> */}
       {/* <SignIn></SignIn> */}
       {/* <Profile></Profile> */}
     </div>

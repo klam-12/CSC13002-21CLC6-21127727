@@ -87,3 +87,12 @@
     margin-bottom: 60px;
     background-color: #5D9C59;
   }
+  .comment-bar{
+    margin: 6px 0px;
+    padding: 15px 20px;
+    width: 800px;
+    border: none;
+    border-radius: 10px;
+    background: var(--foundation-white-white-100, #F7F7F7);
+    display: inline-flex;
+  }

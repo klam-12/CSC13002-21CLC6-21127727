@@ -32,6 +32,9 @@
     transition: 0.3s;
     border-radius: 5px; /* 5px rounded corners */
   }
+  .comment-card-container{
+    display: inline-block;
+  }
   
   /* Add rounded corners to the top left and the top right corner of the image */
   img {
@@ -43,14 +46,20 @@
 hr.solid {
     border-top: 1px solid #868686;
   }
-
+.comment-name-section{
+  display: inline-flex;
+}
 .comment-name{
   color: #5D9C59;
+  margin: 0;
+  padding-left: 15px;
 }
-
 .comment-date{
     font-size: 14px;  
     font-style: normal;
     color: #868686;
+    margin: 0;
+    padding-top: 7px;
+    padding-left: 15px;
   }
 

@@ -32,9 +32,9 @@ const Profile = () => {
                         </div>
                     </Grid>
                     <Grid item xs={8}>
-                        {/* <ProfileCard></ProfileCard> */}
+                        <ProfileCard></ProfileCard>
                         {/* <ChangePasswordCard></ChangePasswordCard> */}
-                        <TakenTour></TakenTour>
+                        {/* <TakenTour></TakenTour> */}
                     </Grid>
                 </Grid>
             </div>

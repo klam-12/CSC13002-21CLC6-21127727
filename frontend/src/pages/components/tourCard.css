@@ -30,7 +30,7 @@
   }
   
   /* Add rounded corners to the top left and the top right corner of the image */
-  img {
+  .tour-card-container img {
     border-radius: 5px 5px 0 0;
     height: 286px;
   }
@@ -40,8 +40,9 @@ hr.solid {
     border-top: 1px solid #868686;
   }
 
-h4{
+.tour-card-container h4{
   color: #5D9C59;
+  margin-bottom: 5px;
 }
 .tour-price-container{
   padding: 14px;
@@ -49,6 +50,7 @@ h4{
 }
 .tour-info{
   font-size: 13px;
+  margin-top: 5px;
 }
 .tour-info-price{
   font-size: 13px;

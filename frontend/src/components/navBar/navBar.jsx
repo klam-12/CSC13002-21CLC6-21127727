@@ -9,19 +9,22 @@ const NavBar = () => {
                 </div>
                     <ul className="itemList">
                     <li className="item">
-                        <a href="#form">Sign Up</a>
+                        <a href="#form">Đăng ký</a>
                     </li>
                     <li className="item">
-                        <a href="#form">Sign In</a>
+                        <a href="#form">Đăng nhập</a>
                     </li>
                     <li className="item">
-                        <a href="#feedback">Feedback</a>
+                        <a href="#feedback">Feedbacks</a>
                     </li>
                     <li className="item">
-                        <a href="#vacationPackages">Vacation Packages</a>
+                        <a href="#hotTours">Hot tours</a>
                     </li>
                     <li className="item">
-                        <a href="#aboutUs">About us</a>
+                        <a href="#vacationPackages">Tất cả tours</a>
+                    </li>
+                    <li className="item">
+                        <a href="#aboutUs">Về chúng tôi</a>
                     </li>
                     </ul>
             </div>

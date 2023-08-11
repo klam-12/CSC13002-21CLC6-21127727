@@ -13,59 +13,42 @@ const TourFeedBack = () => {
         <div className="tour-feed-back-container">
             <div className="tour-feed-back-divider"></div>
             <div className="tour-feed-back">
+            <form className="authentication-form">
+                <div className="tour-feed-back">
                 <Avatar image={avatar}/>
-                <Input placeholder="Suy nghĩ của bạn về chuyến đi này" inputProps={ariaLabel} style={{width: '1000px'}}/>
-                {/* <TextField id="comment" label="Suy nghĩ của bạn về chuyến đi này" variant="outlined"></TextField> */}
+                <input className="comment-bar" type="text" id="comment" name="comment" placeholder="Suy nghĩ của bạn về chuyến đi này"></input> <br></br>
                 <Rating name="simple-controlled"
                         value={value}
                         onChange={(event, newValue) => {
                             setValue(newValue);
                         }}>
                 </Rating>
-            </div>
-            <div className="tour-feed-back">
+                </div>
+
+                <div className="tour-feed-back">
                 <Avatar image={avatar}/>
-                <Input placeholder="Suy nghĩ của bạn về chuyến đi này" inputProps={ariaLabel} style={{width: '1000px'}}/>
-                {/* <TextField id="comment" label="Suy nghĩ của bạn về chuyến đi này" variant="outlined"></TextField> */}
-                <Rating name="simple-controlled"
-                        value={value}
-                        onChange={(event, newValue) => {
-                            setValue(newValue);
-                        }}>
-                </Rating>
-            </div>
-            <div className="tour-feed-back">
+                <input className="comment-bar" type="text" id="comment1" name="comment1" value="Chuyến đi rất tuyệt!" readonly></input> <br></br>
+                <Rating name="read-only" value={value} readOnly />
+                </div>
+
+                <div className="tour-feed-back">
                 <Avatar image={avatar}/>
-                <Input placeholder="Suy nghĩ của bạn về chuyến đi này" inputProps={ariaLabel} style={{width: '1000px'}}/>
-                {/* <TextField id="comment" label="Suy nghĩ của bạn về chuyến đi này" variant="outlined"></TextField> */}
-                <Rating name="simple-controlled"
-                        value={value}
-                        onChange={(event, newValue) => {
-                            setValue(newValue);
-                        }}>
-                </Rating>
-            </div>
-            <div className="tour-feed-back">
+                <input className="comment-bar" type="text" id="comment2" name="comment2" value="Chuyến đi rất tuyệt!" readonly></input> <br></br>
+                <Rating name="read-only" value={value} readOnly />
+                </div>
+
+                <div className="tour-feed-back">
                 <Avatar image={avatar}/>
-                <Input placeholder="Suy nghĩ của bạn về chuyến đi này" inputProps={ariaLabel} style={{width: '1000px'}}/>
-                {/* <TextField id="comment" label="Suy nghĩ của bạn về chuyến đi này" variant="outlined"></TextField> */}
-                <Rating name="simple-controlled"
-                        value={value}
-                        onChange={(event, newValue) => {
-                            setValue(newValue);
-                        }}>
-                </Rating>
-            </div>
-            <div className="tour-feed-back">
+                <input className="comment-bar" type="text" id="comment3" name="comment3" value="Chuyến đi rất tuyệt!" readonly></input> <br></br>
+                <Rating name="read-only" value={value} readOnly />
+                </div>
+
+                <div className="tour-feed-back">
                 <Avatar image={avatar}/>
-                <Input placeholder="Suy nghĩ của bạn về chuyến đi này" inputProps={ariaLabel} style={{width: '1000px'}}/>
-                {/* <TextField id="comment" label="Suy nghĩ của bạn về chuyến đi này" variant="outlined"></TextField> */}
-                <Rating name="simple-controlled"
-                        value={value}
-                        onChange={(event, newValue) => {
-                            setValue(newValue);
-                        }}>
-                </Rating>
+                <input className="comment-bar" type="text" id="comment4" name="comment4" value="Chuyến đi rất tuyệt!" readonly></input> <br></br> 
+                <Rating name="read-only" value={value} readOnly />
+                </div>
+            </form>
             </div>
         </div>
     );

@@ -1,3 +1,4 @@
+import Button from '../../../components/button/button';
 import './tourStyles.css'
 
 const TourIndex = () => {
@@ -17,8 +18,8 @@ const TourIndex = () => {
         <div className="detail-tour-index-container">
           <p>Hotline: 1900 1234</p>
           <p>Email: travelus@gmail.com </p>
-          <p><button className="detail-tour-index-button">Call now!</button></p>
         </div>
+        <Button content="Call now!"></Button>
       </div>
       </div>
     );
