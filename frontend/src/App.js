@@ -10,16 +10,16 @@ import DetailTour from './pages/tour/detailTour';
 function App() {
   return (
     <div >
-      {/* <HomePage></HomePage> */}
-      {/* <DetailTour></DetailTour> */}
-      {/* <SearchPage></SearchPage> */}
-      <Payment></Payment>
+      <HomePage></HomePage>
+      {/* <DetailTour></DetailTour>
+      <SearchPage></SearchPage>
+      <Payment></Payment> */}
 
 
 
-      {/* <SignUp></SignUp> */}
-      {/* <SignIn></SignIn> */}
-      {/* <Profile></Profile> */}
+      {/* <SignUp></SignUp>
+      <SignIn></SignIn>
+      <Profile></Profile> */}
     </div>
   );
 }

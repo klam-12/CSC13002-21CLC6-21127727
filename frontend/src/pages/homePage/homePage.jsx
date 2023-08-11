@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import NavBar from '../../components/navBar/navBar';
 import HeroBanner from './sections/heroBanner';
 import AboutUs from './sections/aboutUs';
@@ -12,10 +12,10 @@ const HomePage = () => {
             <NavBar></NavBar>
             <HeroBanner/>
             {/* <SearchBar></SearchBar> */}
-            <AboutUs></AboutUs>
+            {/* <AboutUs></AboutUs> */}
             <HotTours></HotTours>
-            <FeedBack></FeedBack>
-            <Footer></Footer>
+            {/* <FeedBack></FeedBack>
+            <Footer></Footer> */}
         </div>
     );
 };
