@@ -66,7 +66,7 @@ class SearchSerializer(serializers.ModelSerializer):
     fields = ['id', 'from_location', 'to_location','avg_star', 'price','acti','main_picture']
   def get_from_location(self, obj):
     return obj.start_location_Id.location_name
-    
+  
   def get_to_location(self, obj):
     return obj.end_location_Id.location_name
   
@@ -94,7 +94,7 @@ class DetailTourSerializer(serializers.ModelSerializer):
     fields =['tour_name','price','time','detail','from_location','to_location','main_picture','start_date','vehicle_name','heading_activity_picture']
   def get_from_location(self, obj):
     return obj.start_location_Id.location_name
-    
+  
   def get_to_location(self, obj):
     return obj.end_location_Id.location_name
   def get_start_date(self,obj):

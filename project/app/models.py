@@ -39,6 +39,8 @@ class TourStartDate(models.Model):
       )
     ]   
 
+
+
 class Schedule(models.Model):
   id=models.AutoField(primary_key=True)
   tour_id= models.ForeignKey(Tour,on_delete=models.CASCADE,related_name='schedule_tourid')

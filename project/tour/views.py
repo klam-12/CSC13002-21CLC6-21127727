@@ -56,12 +56,6 @@ class ScheduleView(APIView):
 
 
 
-# class reactRequestView():
-#     def post(self, request, * args, **kwargs):
-#         data={
-#            'id': request.data.get()
-            
-#         }
 
 
 @api_view(['GET','POST','DELETE'])
