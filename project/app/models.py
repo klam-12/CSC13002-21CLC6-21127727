@@ -5,9 +5,9 @@ class React(models.Model):
   employee = models.CharField(max_length= 30)
   department = models.CharField(max_length=200) 
 
-class Vehicel(models.Model):
+class Vehicle(models.Model):
   id=models.AutoField(primary_key=True)
-  vehicel_name= models.CharField(max_length=30)
+  vehicle_name= models.CharField(max_length=30)
 
 class Location(models.Model):
   id=models.AutoField(primary_key=True)
@@ -19,18 +19,12 @@ class Tour(models.Model):
   id=models.AutoField(primary_key=True)
   start_location_Id=models.ForeignKey(Location,on_delete=models.CASCADE,related_name='tour_location_start')
   end_location_Id=models.ForeignKey(Location,on_delete=models.CASCADE,related_name='tour_location_end')
-  vehicel_Id=models.ForeignKey(Vehicel,on_delete=models.CASCADE,related_name='tour_vehicle')
+  vehicle_Id=models.ForeignKey(Vehicle,on_delete=models.CASCADE,related_name='tour_vehicle')
   tour_name=models.CharField(max_length=100)
   price=models.IntegerField(null=True)
   time=models.IntegerField(null=True)
   detail=models.CharField(max_length=500)
-  NAME_TAG=[
-    ("s","Sap dien ra"),
-    ("d","Dang dien ra"),
-    ('k',"Da ket thuc"),
-  ]
-  tag=models.CharField(max_length=30,choices=NAME_TAG,default="Sap dien ra")
-
+  main_picture=models.ImageField(null=True)
 
 class TourStartDate(models.Model):
   id=models.AutoField(primary_key=True)
@@ -42,30 +36,24 @@ class TourStartDate(models.Model):
         fields=['tour_id','start_date'],name='unique_migration_tourstartdate'
       )
     ]   
-class Picture(models.Model):
-  id=models.AutoField(primary_key=True)
-  tour_id=models.ForeignKey(Tour,on_delete=models.CASCADE,related_name='picture_tour')
-  picture=models.ImageField(null=True)
+
 
 
 
 class Schedule(models.Model):
   id=models.AutoField(primary_key=True)
   tour_id= models.ForeignKey(Tour,on_delete=models.CASCADE,related_name='schedule_tourid')
-  date=models.DateField(null=True)
+  date= models.IntegerField(null=True)
+  heading=models.CharField(max_length=50, null=True)
   activity=models.CharField(max_length=500,null=True)
-<<<<<<< HEAD
-  location_id=models.ForeignKey(Location,on_delete=models.CASCADE,related_name='schedule_locationid')
-=======
   picture=models.ImageField(null=True)
 
->>>>>>> feature/detail_tour
   class Meta:
     constraints=[
       models.UniqueConstraint(
         fields=['tour_id','date'],name='unique_migration_schedule'
       )
-    ]  
+    ]   
 
 class Account(models.Model):
   id=models.AutoField(primary_key=True)
