@@ -47,6 +47,8 @@ class Picture(models.Model):
   tour_id=models.ForeignKey(Tour,on_delete=models.CASCADE,related_name='picture_tour')
   picture=models.ImageField(null=True)
 
+
+
 class Schedule(models.Model):
   id=models.AutoField(primary_key=True)
   tour_id= models.ForeignKey(Tour,on_delete=models.CASCADE,related_name='schedule_tourid')
