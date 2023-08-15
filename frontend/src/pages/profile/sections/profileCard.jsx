@@ -1,6 +1,9 @@
+import React from 'react';
 import '../profile.css'
 
-const ProfileCard = () => {
+const ProfileCard = (props) => {
+  const user = props.props
+  console.log(user)
     return (
       <div>
         <form className="profile-card">
@@ -11,37 +14,37 @@ const ProfileCard = () => {
 
             <div className="profile-card-info-container">
               <label className="profile-label" for="profile-name">Tên đăng nhập</label>
-                <input className="profile-card-info" type="text" id="profile-name" name="profile-name" value="manhmanhmanh123" readonly></input> <br></br>
+                <input className="profile-card-info" type="text" id="profile-name" name="profile-name" value={user.username} readonly></input> <br></br>
             </div>
 
             <div className="profile-card-info-container">
               <label className="profile-label" for="profile-fullname">Tên profile</label>
-              <input className="profile-card-info" type="text" id="profile-fullname" name="profile-fullname" value="Trần Minh Anh" readonly></input> <br></br>
+              <input className="profile-card-info" type="text" id="profile-fullname" name="profile-fullname" value={user.full_name} readonly></input> <br></br>
             </div>
 
             <div className="profile-card-info-container">
               <label className="profile-label" for="profile-email">Email</label>
-              <input className="profile-card-info" type="text" id="profile-email" name="profile-email" value="tranminhanh1912@gmail.com" readonly></input> <br></br>
+              <input className="profile-card-info" type="text" id="profile-email" name="profile-email" value={user.email} readonly></input> <br></br>
             </div>
             
             <div className="profile-card-info-container">
               <label className="profile-label" for="profile-phone">Số điện thoại</label>
-              <input className="profile-card-info" type="text" id="profile-phone" name="profile-phone" value="0909123456" readonly></input> <br></br>
+              <input className="profile-card-info" type="text" id="profile-phone" name="profile-phone" value={user.phone}readonly></input> <br></br>
             </div>
             
             <div className="profile-card-info-container">
               <label className="profile-label" for="profile-dob">Ngày sinh</label>
-              <input className="profile-card-info" type="text" id="profile-dob" name="profile-dob" value="17/12/2003" readonly></input> <br></br>
+              <input className="profile-card-info" type="text" id="profile-dob" name="profile-dob" value={user.birth_date} readonly></input> <br></br>
             </div>
             
             <div className="profile-card-info-container">
               <label className="profile-label" for="profile-gender">Giới tính</label>
-              <input className="profile-card-info" type="text" id="profile-gender" name="profile-gender" value="Nữ" readonly></input> <br></br>
+              <input className="profile-card-info" type="text" id="profile-gender" name="profile-gender" value={user.gender} readonly></input> <br></br>
             </div>
 
             <div className="profile-card-info-container">
               <label className="profile-label" for="profile-address">Địa chỉ</label>
-              <input className="profile-card-info" type="text" id="profile-address" name="profile-address" value="21 Trương Công Định, phường 14, Tân Bình" readonly></input> <br></br>
+              <input className="profile-card-info" type="text" id="profile-address" name="profile-address" value={user.address} readonly></input> <br></br>
             </div>
         </form>
       </div>

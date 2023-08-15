@@ -1,3 +1,4 @@
+import React from 'react';
 import './tourCardButton.css'
 
 const TourCardButton = () => {

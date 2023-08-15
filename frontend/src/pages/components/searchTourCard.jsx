@@ -1,3 +1,4 @@
+import React from 'react';
 import './searchTourCard.css'
 import test from '../../assets/images/test.jpg'
 import TourCardButton from './tourCardButton';

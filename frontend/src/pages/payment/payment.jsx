@@ -1,3 +1,4 @@
+import React from 'react';
 import NavBar from '../../components/navBar/navBar';
 import Footer from '../../components/footer/footer';
 import PaymentInfo from './sections/paymentInfo';

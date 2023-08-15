@@ -1,3 +1,4 @@
+import React from 'react';
 import '../authentication.css'
 
 const FacebookGoogleButton = (props) => {

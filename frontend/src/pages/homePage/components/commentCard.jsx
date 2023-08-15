@@ -1,3 +1,4 @@
+import React from 'react';
 import './commentCard.css'
 import avatar from '../../../assets/icons/avatar.jpg'
 import Avatar from '../../components/avatar';

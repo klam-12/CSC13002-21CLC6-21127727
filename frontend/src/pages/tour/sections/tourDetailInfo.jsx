@@ -1,3 +1,4 @@
+import React from 'react';
 import './tourStyles.css'
 import test from '../../../assets/images/test.jpg'
 import { Grid } from '@mui/material';

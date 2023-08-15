@@ -1,3 +1,4 @@
+import React from 'react';
 import { Grid } from "@mui/material";
 import './sectionStyles.css'
 import TourCard from "../../components/tourCard";

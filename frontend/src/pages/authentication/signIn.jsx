@@ -1,9 +1,11 @@
+import React from 'react';
 import './authentication.css'
 import { Grid } from "@mui/material";
 import test from '../../assets/images/test.jpg'
 import SignInCard from './sections/signInCard';
 
 const SignIn = () => {
+
     return (
         <div className="authentication-container">
             <Grid container spacing={4}>

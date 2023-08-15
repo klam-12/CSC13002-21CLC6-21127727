@@ -5,17 +5,18 @@ import AboutUs from './sections/aboutUs';
 import FeedBack from './sections/feedBack';
 import Footer from '../../components/footer/footer';
 import HotTours from './sections/hotTours';
-
+import { Outlet } from 'react-router-dom'; 
 const HomePage = () => {
     return (
         <div>
             <NavBar></NavBar>
             <HeroBanner/>
             {/* <SearchBar></SearchBar> */}
-            {/* <AboutUs></AboutUs> */}
+            <AboutUs></AboutUs>
             <HotTours></HotTours>
-            {/* <FeedBack></FeedBack>
-            <Footer></Footer> */}
+             <FeedBack></FeedBack>
+            <Footer></Footer>
+            <Outlet> </Outlet>
         </div>
     );
 };

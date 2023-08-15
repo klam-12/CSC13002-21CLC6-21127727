@@ -1,3 +1,4 @@
+import React from 'react';
 import SearchTourCard from '../../components/searchTourCard';
 import '../profile.css'
 
