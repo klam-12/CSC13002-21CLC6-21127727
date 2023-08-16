@@ -87,7 +87,7 @@ def recommend_view(request):
     tour_data = RecommendTourSerializer(tours, many=True)
     return Response(data=tour_data.data,status=status.HTTP_200_OK)
 
-import pandas as pb
+
 @api_view(['GET'])
 def search_tour_view(request):
     order_end_location=request.GET.get('end_location')
