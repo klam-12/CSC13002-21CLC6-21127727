@@ -112,3 +112,15 @@ def detail_tour_view(request,id):
     
     return Response(data=tour_data.data,status=status.HTTP_200_OK)
     
+@api_view(['GET'])
+def commend_view(request,id):
+    tourStartDates=TourStartDate.objects.filter(tour_id=id).all()
+    listIdStartDate=[]
+    for tourStarDate in tourStartDates:
+        listIdStartDate.append(tourStarDate.id)
+    registers=Register.objects.filter(tour_startdate_id__in=listIdStartDate).all()
+    commend_data=CommendSerializer(registers,many=True)
+    
+    
+    return Response(data=commend_data.data,status=status.HTTP_200_OK)
+    

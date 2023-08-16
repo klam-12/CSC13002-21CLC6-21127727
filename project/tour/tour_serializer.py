@@ -111,3 +111,8 @@ class DetailTourSerializer(serializers.ModelSerializer):
       result.append({"Heading":schedule.heading,"Activity":schedule.activity})
     return result
   
+class CommendSerializer(serializers.ModelSerializer):
+  class Meta:
+    model= Register
+    fields=['comment','star','acc_id']
+    
