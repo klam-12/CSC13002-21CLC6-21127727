@@ -1,3 +1,5 @@
+import SuccessNotification from './components/notification/successNoti';
+import WarningNotification from './components/notification/warningNoti';
 import './globalStyle.css';
 import SignIn from './pages/authentication/signIn';
 import SignUp from './pages/authentication/signUp';
@@ -10,10 +12,14 @@ import DetailTour from './pages/tour/detailTour';
 function App() {
   return (
     <div >
-      {/* <HomePage></HomePage> */}
+      <HomePage></HomePage>
       {/* <DetailTour></DetailTour> */}
       {/* <SearchPage></SearchPage> */}
-      <Payment></Payment>
+      {/* <Payment></Payment> */}
+
+
+      {/* <SuccessNotification></SuccessNotification> */}
+      {/* <WarningNotification></WarningNotification> */}
 
 
 

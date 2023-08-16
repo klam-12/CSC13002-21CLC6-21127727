@@ -2,7 +2,9 @@ import herobanner from '../../../assets/images/test.jpg'
 
 const HeroBanner = () => {
     return (
-      <img className="homepage-herobanner" src={herobanner}/>
+      <div className='he'>
+        <img className="homepage-herobanner" src={herobanner}/>
+      </div>
     );
 };
 export default HeroBanner;

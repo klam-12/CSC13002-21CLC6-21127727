@@ -1,4 +1,7 @@
 .navbarItems {
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.50);
+    padding: 1px;
     position: sticky;
     top: 0;
 }
@@ -29,12 +32,6 @@ li.item a:hover {
     border-radius: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
-}
-.navbarItems {
-    z-index: 10;
-    background-color: rgba(255, 255, 255, 0.50);
-    ;
-    padding: 1px;
 }
 .container {
     padding: 18px 120px 18px 120px;
