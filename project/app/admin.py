@@ -1,7 +1,6 @@
 from django.contrib import admin
-from .models import React,Tour,Vehicel,Location,TourStartDate,Picture,Account,Profile,Register,Schedule
-# Register your models here.
-# admin.site.register(React)
+from .models import Tour,Vehicel,Location,TourStartDate,Picture,Schedule
+
 admin.site.register(Tour)
 admin.site.register(Vehicel)
 admin.site.register(Location)

@@ -1,10 +1,6 @@
 from django.db import models
 from django.conf import settings 
 # Create your models here.
-class React(models.Model):
-  employee = models.CharField(max_length= 30)
-  department = models.CharField(max_length=200) 
-
 class Vehicel(models.Model):
   id=models.AutoField(primary_key=True)
   vehicel_name= models.CharField(max_length=30)
@@ -12,8 +8,6 @@ class Vehicel(models.Model):
 class Location(models.Model):
   id=models.AutoField(primary_key=True)
   location_name= models.CharField(max_length=100)
-
-
 
 class Tour(models.Model):
   id=models.AutoField(primary_key=True)
@@ -42,10 +36,6 @@ class TourStartDate(models.Model):
         fields=['tour_id','start_date'],name='unique_migration_tourstartdate'
       )
     ]   
-class Picture(models.Model):
-  id=models.AutoField(primary_key=True)
-  tour_id=models.ForeignKey(Tour,on_delete=models.CASCADE,related_name='picture_tour')
-  picture=models.ImageField(null=True)
 
 class Schedule(models.Model):
   id=models.AutoField(primary_key=True)
