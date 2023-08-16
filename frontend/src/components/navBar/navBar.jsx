@@ -33,13 +33,12 @@ const NavBar = () => {
     )
     const authLinks = ()=>(
         <Fragment>
-            <li className="item">
-            <a onClick={handleLogout} >Đăng xuất</a>
-        </li>
              <li className="item">
             <a href={`/profile/${loggedInUser.username}`}>{loggedInUser.username}</a>
         </li>
-        
+        <li className="item">
+            <a onClick={handleLogout} >Đăng xuất</a>
+        </li>
                 
         </Fragment>
     )
@@ -54,8 +53,6 @@ const NavBar = () => {
                     <a href="#header"><> </>Travelus</a>
                 </div>
                     <ul className="itemList">
-                    {loggedInUser ? authLinks() :  guestLinks()}
-                 
                     <li className="item">
                         <a href="feedback">Feedbacks</a>
                     </li>
@@ -68,7 +65,8 @@ const NavBar = () => {
                     <li className="item">
                         <a href="aboutUs">Về chúng tôi</a>
                     </li>
-                       </ul>
+                    {loggedInUser ? authLinks() :  guestLinks()}
+                    </ul>
             </div>
         </nav>
             </div>
