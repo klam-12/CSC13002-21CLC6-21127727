@@ -34,11 +34,11 @@ class TourView(APIView):
         tour_data = TourSerializer(tours, many=True)
         return Response(data=tour_data.data,status=status.HTTP_200_OK)
 
-class VehicelView(APIView):
+class VehicleView(APIView):
     def get(self,request):
-        vehicels=Vehicel.objects.all()
-        vehicel_data=VehicelSerializer(vehicels,many=True)
-        return Response(data=vehicel_data.data,status=status.HTTP_200_OK)
+        vehicles=Vehicle.objects.all()
+        vehicle_data=VehicleSerializer(vehicles,many=True)
+        return Response(data=vehicle_data.data,status=status.HTTP_200_OK)
     
 class LocationView(APIView):
     def get(self,request):
@@ -52,19 +52,10 @@ class ScheduleView(APIView):
         schedule_data=ScheduleSerializer(schedules,many=True)
         return Response(data=schedule_data.data,status=status.HTTP_200_OK)
         
-class PitureView(APIView):
-    def get(self,request):
-        pictures=Picture.objects.all()
-        picture_data=PictureSerializer(pictures,many=True)
-        return Response(data=picture_data.data,status=status.HTTP_200_OK)
 
 
-# class reactRequestView():
-#     def post(self, request, * args, **kwargs):
-#         data={
-#            'id': request.data.get()
-            
-#         }
+
+
 
 
 @api_view(['GET','POST','DELETE'])
@@ -119,5 +110,5 @@ def detail_tour_view(request,id):
     tours=Tour.objects.filter(id=id).all()
     tour_data=DetailTourSerializer(tours,many=True)
     
+    return Response(data=tour_data.data,status=status.HTTP_200_OK)
     
-
