@@ -1,7 +1,7 @@
 from django.db import models
 from django.conf import settings 
 # Create your models here.
-class Vehicel(models.Model):
+class Vehicle(models.Model):
   id=models.AutoField(primary_key=True)
   vehicle_name= models.CharField(max_length=30)
 
@@ -30,9 +30,6 @@ class TourStartDate(models.Model):
         fields=['tour_id','start_date'],name='unique_migration_tourstartdate'
       )
     ]   
-
-
-
 
 class Schedule(models.Model):
   id=models.AutoField(primary_key=True)
