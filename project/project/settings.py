@@ -88,9 +88,9 @@ CORS_ORIGIN_ALLOW_ALL = True
 DATABASES = {
      'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'travelus',
+        'NAME': 'travel',
         'USER': 'root',
-        'PASSWORD': 'Ngoctram@2003',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'POST': '3306',
     #IMPORTANT!!

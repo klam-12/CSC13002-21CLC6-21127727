@@ -27,7 +27,7 @@ class RecommendTourSerializer(serializers.ModelSerializer):
   
   class Meta:
     model = Tour
-    fields = ['id', 'from_location', 'to_location','avg_star', 'detail', 'price']
+    fields = ['id', 'from_location', 'to_location','avg_star', 'detail', 'price','main_picture']
 
   def get_from_location(self, obj):
     return obj.start_location_Id.location_name
@@ -58,10 +58,9 @@ class SearchSerializer(serializers.ModelSerializer):
   from_location = serializers.SerializerMethodField()
   to_location = serializers.SerializerMethodField()
   avg_star = serializers.SerializerMethodField()
-  acti=serializers.SerializerMethodField()
   class Meta:
     model =Tour 
-    fields = ['id', 'from_location', 'to_location','avg_star', 'price','acti','main_picture']
+    fields = ['id', 'from_location', 'to_location','avg_star', 'price','detail','main_picture']
   def get_from_location(self, obj):
     return obj.start_location_Id.location_name
   
@@ -77,9 +76,7 @@ class SearchSerializer(serializers.ModelSerializer):
       star += cur_star if cur_star else 0
     return star/count if count >=1 else 0
 
-  def get_acti(self,obj):
-    data= obj.schedule_tourid.all()
-    return data[0].activity 
+
     
     
 class DetailTourSerializer(serializers.ModelSerializer):

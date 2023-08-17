@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings 
+from users.models import *
 # Create your models here.
 class Vehicle(models.Model):
   id=models.AutoField(primary_key=True)
@@ -33,14 +34,28 @@ class TourStartDate(models.Model):
 
 class Schedule(models.Model):
   id=models.AutoField(primary_key=True)
-  tour_startdate_id= models.ForeignKey(TourStartDate,on_delete=models.CASCADE,related_name="schedule_tourstartdateid")
+  tour_id= models.ForeignKey(Tour,on_delete=models.CASCADE,related_name="schedule_tourid")
   date=models.DateField(null=True)
   activity=models.CharField(max_length=500,null=True)
   picture=models.ImageField(null=True)
+  heading=models.CharField(max_length=200,null=True)
   class Meta:
     constraints=[
       models.UniqueConstraint(
-        fields=['tour_startdate_id','date'],name='unique_migration_schedule'
+        fields=['tour_id','date'],name='unique_migration_schedule'
       )
-    ]   
-
+    ]
+class Register(models.Model):
+  id=models.AutoField(primary_key=True)
+  tour_startdate_id= models.ForeignKey(TourStartDate,on_delete=models.CASCADE,related_name="register_tourstartdateid")
+  acc_id=models.ForeignKey(NewUser,on_delete=models.CASCADE,related_name="register_accid")
+  register_date=models.DateField(null=True)
+  comment=models.CharField(max_length=200,null=True)
+  STAR=[
+    (1,1),
+    (2,2),
+    (3,3),
+    (4,4),
+    (5,5),
+  ]
+  star=models.IntegerField(choices=STAR,default=5)

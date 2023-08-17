@@ -58,19 +58,10 @@ class ScheduleView(APIView):
 
 
 
-@api_view(['GET','POST','DELETE'])
-def tutorial(request):
-    if request.method =='POST':
-        tutorial_data=JSONParser().parse(request)
-        tutorial_serializer=ReactSerializer(data=tutorial_data)
-        if tutorial_serializer.is_valid():
-            tutorial_serializer.save()
-            return JsonResponse(tutorial_serializer.data,status=status.HTTP_201_CREATED )
-        return JsonResponse(tutorial_serializer.errors,status=status.HTTP_400_BAD_REQUEST)
         
 @api_view(['GET'])
 def recommend_view(request):
-    registers = TourStartDate.objects.values('tour_id').annotate(total_stars=Avg('register_tourstartdateid__star')).order_by('-total_stars')[:4]
+    registers = TourStartDate.objects.values('tour_id').annotate(total_stars=Avg('register_tourstartdateid__star')).order_by('-total_stars')
     list_tour_id = []
     for register in registers:
         list_tour_id.append(register['tour_id'])
