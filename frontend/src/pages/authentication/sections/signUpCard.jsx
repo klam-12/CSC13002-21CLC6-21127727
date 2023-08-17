@@ -22,7 +22,8 @@ const SignUpCard = ({onRegister}) => {
 		address: '',
 		gender:'',
 		phone:'',
-		avatar: '',
+		role: "USER",
+		avatar: null,
 	});
 
 	const [formData, updateFormData] = useState(initialFormData);
@@ -45,10 +46,12 @@ const SignUpCard = ({onRegister}) => {
 					address: formData.address,
 					gender: formData.gender,
 					phone: formData.phone,
-					avatar: defaultImage
+					role: formData.role,
+					avatar: null
+	
 				}).then((res) => {
 					navigate('/signin');
-					window.location.href = '/';
+					// window.location.href = '/';
 						console.log(res);
 					console.log(res.data);
 				});

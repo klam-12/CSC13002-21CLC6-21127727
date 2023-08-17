@@ -58,7 +58,7 @@ class NewUser(AbstractBaseUser, PermissionsMixin):
 
     password_validator = PasswordValidator()
     password = models.CharField(_("password"),
-        max_length=30,
+        max_length=100,
         help_text=_(
             "Min 3 char and max 30 char. No special characters allowed"
         ),

@@ -14,7 +14,7 @@ class CustomUserSerializer(serializers.ModelSerializer):
 
     email = serializers.EmailField(required=True)   
     username = serializers.CharField(
-        max_length=30,
+        max_length=100,
         validators=[],
     )
     password = serializers.CharField(
