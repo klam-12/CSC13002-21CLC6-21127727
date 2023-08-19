@@ -3,7 +3,6 @@ import './searchTourCard.css'
 import test from '../../assets/images/test.jpg'
 import TourCardButton from './tourCardButton';
 import { Rating } from '@mui/material';
-import React from 'react';
 
 const SearchTourCard = () => {
   const [value, setValue] = React.useState(5);

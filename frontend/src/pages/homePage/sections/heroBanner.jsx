@@ -1,3 +1,4 @@
+import React from "react";
 import herobanner from '../../../assets/images/LandingPage.jpg'
 
 const HeroBanner = () => {

@@ -5,7 +5,6 @@ import authImage from '../../assets/images/SignIn.jpg'
 import SignUpCard from './sections/signUpCard';
 
 const SignUp = ({ onRegister }) => {
-    
 
     return (
         <div className="authentication-container">

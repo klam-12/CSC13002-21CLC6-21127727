@@ -36,7 +36,7 @@ const SignUpCard = ({onRegister}) => {
 			[e.target.name]: e.target.value.trim(),
 		});
 	};
-	
+
 		const handleSubmit = async (e) => {
 
 		// const isValidPhoneNumber = validatePhoneNumber(formData.phone_number);

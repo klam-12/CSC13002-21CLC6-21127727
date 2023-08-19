@@ -1,7 +1,7 @@
 import Button from "../button/button";
 import success from '../../assets/icons/check-circle-solid.svg'
 import './notification.css'
-
+import React from 'react';
 const SuccessNotification = () => {
     return (
         <div className="notification">

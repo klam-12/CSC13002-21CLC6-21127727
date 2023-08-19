@@ -1,7 +1,7 @@
 import Button from "../button/button";
 import warning from '../../assets/icons/triangle-exclamation-solid.svg'
 import './notification.css'
-
+import React from 'react';
 const WarningNotification = () => {
     return (
         <div className="notification">

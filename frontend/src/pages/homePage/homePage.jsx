@@ -32,7 +32,7 @@ const HomePage = () => {
     <div>
       <NavBar></NavBar>
       <HeroBanner />
-      {/* <SearchBar></SearchBar> */}
+      <SearchBar></SearchBar>
       <AboutUs></AboutUs>
       <HotTourLoading isLoading={loading} posts={appState}></HotTourLoading>
       <FeedBack></FeedBack>
