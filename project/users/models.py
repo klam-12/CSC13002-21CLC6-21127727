@@ -3,10 +3,13 @@ from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 from django.core.exceptions import ValidationError
-from .validators import PasswordValidator, UsernameValidator,PhoneValidator
+from .validators import PasswordValidator,PhoneValidator
+
+def upload_to(instance, filename):
+    return 'users/{filename}'.format(filename=filename)
 
 class CustomAccountManager(BaseUserManager):
-    def create_superuser(self, username,  password, **other_fields):
+    def create_superuser(self, email,  password, **other_fields):
 
         other_fields.setdefault('is_staff', True)
         other_fields.setdefault('is_superuser', True)
@@ -19,11 +22,11 @@ class CustomAccountManager(BaseUserManager):
             raise ValueError(
                 'Superuser must be assigned to is_superuser=True.')
 
-        return self.create_user(username=username, password=password, **other_fields)
+        return self.create_user(email=email, password=password, **other_fields)
 
-    def create_user(self, username, password, **other_fields):
+    def create_user(self, email, password, **other_fields):
 
-        if not username:
+        if not email:
             raise ValueError(_('You must provide an user_name address'))
 
         if not password:
@@ -35,26 +38,12 @@ class CustomAccountManager(BaseUserManager):
         except ValidationError as e:
             raise ValidationError({'password': e.message})
 
-        user = self.model(username=username, **other_fields)
+        user = self.model(email=email, **other_fields)
         user.set_password(password)
         user.save()
         return user
 
 class NewUser(AbstractBaseUser, PermissionsMixin):
-
-    # id=models.AutoField(primary_key=True)
-    username_validator = UsernameValidator()
-    username = models.CharField(
-        _("username"),
-        max_length=30,
-        unique=True,
-        help_text=_(
-            "Min 3 char and max 30 char. No special characters allowed"
-        ),
-        error_messages={
-            "unique": _("A user with that username already exists."),
-        },
-    )
 
     password_validator = PasswordValidator()
     password = models.CharField(_("password"),
@@ -82,8 +71,8 @@ class NewUser(AbstractBaseUser, PermissionsMixin):
         help_text=_(
               "Số điện thoại là số có 10 chữ số"
           ),
-          validators=[],)
-    avatar = models.FileField(null=True)
+          validators=[phone_validator],)
+    avatar = models.ImageField(_("Image"), upload_to=upload_to, default='users/defaults.png',null=True)
   
     start_date = models.DateTimeField(default=timezone.now)
     about = models.TextField(_(
@@ -93,7 +82,7 @@ class NewUser(AbstractBaseUser, PermissionsMixin):
     objects = CustomAccountManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username', 'full_name']
+    REQUIRED_FIELDS = [ 'full_name']
 
     def __str__(self):
-        return self.username
+        return self.full_name

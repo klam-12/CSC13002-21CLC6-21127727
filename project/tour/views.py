@@ -54,14 +54,10 @@ class ScheduleView(APIView):
         
 
 
-
-
-
-
         
 @api_view(['GET'])
 def recommend_view(request):
-    registers = TourStartDate.objects.values('tour_id').annotate(total_stars=Avg('register_tourstartdateid__star')).order_by('-total_stars')
+    registers = TourStartDate.objects.values('tour_id').annotate(total_stars=Avg('register_tourstartdateid__star')).order_by('-total_stars')[:4]
     list_tour_id = []
     for register in registers:
         list_tour_id.append(register['tour_id'])
@@ -100,6 +96,5 @@ def search_tour_view(request):
 def detail_tour_view(request,id):
     tours=Tour.objects.filter(id=id).all()
     tour_data=DetailTourSerializer(tours,many=True)
-    
     return Response(data=tour_data.data,status=status.HTTP_200_OK)
     

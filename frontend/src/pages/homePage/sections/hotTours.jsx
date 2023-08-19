@@ -1,29 +1,30 @@
-import React from 'react';
+import React,  { useEffect, useState } from 'react';
 import { Grid } from "@mui/material";
 import './sectionStyles.css'
 import TourCard from "../../components/tourCard";
-
-const HotTours = () => {
+import axiosInstance from '../../../axios';
+const HotTours = ({ posts }) => {
+    // const posts  = props;
+    
+	// if (!posts || posts.length === 0) return <p>Can not find any posts, sorry</p>;
     return (
-        <div>
             <section className="homepage-section" id="hotTours">
                 <h1>Hot tours</h1>
-                <Grid container spacing={4}>
-                    <Grid item xs={3}>
-                        <TourCard></TourCard>
+                {!posts ? (
+                <p>Loading...</p>
+                ) : (
+                    <Grid container spacing={4}>
+                        {posts.map((post)  => { //zalo đi kau
+                            return (
+                                <Grid item key={post.id} xs={3}>
+                                    <TourCard props ={post}></TourCard>
+                                </Grid>
+                            );
+                        })}
                     </Grid>
-                    <Grid item xs={3}>
-                    <TourCard></TourCard>
-                    </Grid>
-                    <Grid item xs={3}>
-                    <TourCard></TourCard>
-                    </Grid>
-                    <Grid item xs={3}>
-                    <TourCard></TourCard>
-                    </Grid>
-                </Grid>
+                )}
             </section>
-        </div>
+ 
     );
 };
 export default HotTours;

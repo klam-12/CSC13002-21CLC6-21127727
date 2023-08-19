@@ -16,9 +16,6 @@ const App = () => {
     // console.log(localStorage.getItem('user'))
     // console.log(storedUser.username)
   const [loggedInUser, setLoggedInUser] = useState(storedUser ? storedUser : '');
-  console.log(loggedInUser)
-
-
     const handleLogin = (user) => {
         setLoggedInUser(user);
     };
@@ -33,6 +30,7 @@ const App = () => {
 			console.log("app")
 		});
 	}, []);
+  
 	return (
 		<React.StrictMode>
       <Routes>
@@ -47,7 +45,6 @@ const App = () => {
 };
 
 // function App() {
-
 //     return (
 //         <Router>
 //             <div>

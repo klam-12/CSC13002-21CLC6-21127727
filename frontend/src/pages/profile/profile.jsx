@@ -8,24 +8,13 @@ import avatar from '../../assets/icons/avatar.jpg'
 import './profile.css'
 import ChangePasswordCard from "./sections/profileChangePassword";
 import TakenTour from "./sections/profileTakenTour";
-import axiosInstance from '../../axios';
-
+import image  from '/Users/user/CSC13002-21CLC6-21127727/frontend/src/avt.png'
 const Profile = (props) => {
     const [userData, setUserData] = useState(null);
     const user  = props.props;
-    // console.log(props,'hi',user.username)
-//   useEffect(() => {
-//     fetchUserProfile();
-//   }, []);
-//   const fetchUserProfile = () => {
-//     axiosInstance.get('/user/profile/') // Replace with your profile endpoint URL
-//       .then(response => {
-//         setUserData(response.data);
-//       })
-//       .catch(error => {
-//         console.error('Error fetching user profile:', error);
-//       });
-//   };
+    // console.log(user.avatar)
+    const imageUrl = user.avatar;
+    console.log(user.avatar)
     return (
         <div>
             <NavBar></NavBar>
@@ -33,7 +22,8 @@ const Profile = (props) => {
                 <Grid container spacing={4}>
                     <Grid item xs={4}>
                         <div className="profile-name-section">
-                            <Avatar className="profile-avatar" image={user.avatar}></Avatar>
+                            {/* <img style={{"height" : "100%", "width" : "50%"}} src={imageUrl} alt="" /> */}
+                            <Avatar className="profile-avatar" image={`http://localhost:3000${user.avatar}`}></Avatar>
                             <div className="profile-name-container">
                                 <h4 className="profile-name">{user.full_name}</h4>
                                 <a>Đổi avatar</a>

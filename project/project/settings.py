@@ -85,12 +85,26 @@ CORS_ORIGIN_ALLOW_ALL = True
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#      'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'travel',
+#         'USER': 'root',
+#         'PASSWORD': '',
+#         'HOST': 'localhost',
+#         'POST': '3306',
+#     #IMPORTANT!!
+#     'OPTIONS': {
+#              "init_command": "SET foreign_key_checks = 0;",
+#         },
+#     }
+# }
 DATABASES = {
      'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'travel',
+        'NAME': 'travelus',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': 'Ngoctram@2003',
         'HOST': 'localhost',
         'POST': '3306',
     #IMPORTANT!!
@@ -111,16 +125,7 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'users.validators.PasswordValidator',
     },
 ]
 
@@ -189,8 +194,9 @@ REST_FRAMEWORK = {
     ],
 }
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+MEDIA_URL = '/media/'  # URL path để truy cập media files
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Đường dẫn tới thư mục media trên server
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 

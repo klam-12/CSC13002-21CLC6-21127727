@@ -12,10 +12,10 @@ const ProfileCard = (props) => {
             
             <button className="profile-change-button">Lưu thay đổi</button>
 
-            <div className="profile-card-info-container">
-              <label className="profile-label" for="profile-name">Tên đăng nhập</label>
-                <input className="profile-card-info" type="text" id="profile-name" name="profile-name" value={user.username} readonly></input> <br></br>
-            </div>
+            {/* <div className="profile-card-info-container"> */}
+              {/* <label className="profile-label" for="profile-name">Tên đăng nhập</label>
+                <input className="profile-card-info" type="text" id="profile-name" name="profile-name" value={user.full_name} readonly></input> <br></br>
+            </div> */}
 
             <div className="profile-card-info-container">
               <label className="profile-label" for="profile-fullname">Tên profile</label>

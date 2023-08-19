@@ -7,6 +7,6 @@ urlpatterns = [
    # path('register/', CustomUserCreate.as_view(), name='creatre_user')
     path('register/', RegisterView.as_view(), name='register'),
     path('signin/', LoginView.as_view(), name='signin'),
-    path('profile/<str:username>/', ProfileView.as_view(), name='profile'),
+    path('profile/<str:id>/', ProfileView.as_view(), name='profile'),
     path('logout/', ProfileView.as_view(), name='logout'),
 ]

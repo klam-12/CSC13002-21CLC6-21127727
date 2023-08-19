@@ -4,7 +4,9 @@ from .views import *
 from tour import views
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.views.generic import TemplateView
 urlpatterns = [
+    path('', TemplateView.as_view(template_name="app/index.html")),
     path('detailTour',TourView.as_view()),
     path('tourStart',TourStartDateView.as_view()),
     path('vehicle',VehicleView.as_view()),

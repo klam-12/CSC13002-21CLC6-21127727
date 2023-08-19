@@ -11,12 +11,7 @@ import {   BrowserRouter as Router} from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
 const NavBar = () => {
     let storedUser = localStorage.getItem("user") !== undefined ? JSON.parse(localStorage.getItem("user")) : null;
-    // console.log(localStorage.getItem('user'))
-    // console.log(storedUser.username)
   const [loggedInUser, setLoggedInUser] = useState(storedUser ? storedUser : null);
-  console.log(loggedInUser)
-
-
     const handleLogout = () => {
         localStorage.removeItem('user');
         setLoggedInUser(null);
@@ -34,7 +29,7 @@ const NavBar = () => {
     const authLinks = ()=>(
         <Fragment>
              <li className="item">
-            <a href={`/profile/${loggedInUser.username}`}>{loggedInUser.username}</a>
+            <a href={`/profile/${loggedInUser.id}`}>{loggedInUser.full_name}</a>
         </li>
         <li className="item">
             <a onClick={handleLogout} >Đăng xuất</a>

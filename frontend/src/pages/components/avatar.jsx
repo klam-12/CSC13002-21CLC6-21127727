@@ -1,9 +1,9 @@
 import React from 'react';
 import './avatar.css'
 
-const Avatar = (props) => {
+const Avatar = ( {image} ) => {
     return (
-        <img className="avatar" src={props.image} alt="avatar"/>
+        <img className="avatar" src={image} alt="avatar"/>
     );
 };
 export default Avatar;
