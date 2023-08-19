@@ -1,25 +1,36 @@
+.authentication{
+  display: flex;
+  align-items: center;
+}
 .authentication-container{
     background: linear-gradient(135deg, #5D9C59 0%, rgba(93, 156, 89, 0.00) 100%);
     padding: 30px 120px 30px 120px;
-    height: 100%;
+    height: 700px;
+    width: 100%;
 }
-.authentication-container img{
+/* .authentication-image {
     margin: 120px 0px;
+} */
+.authentication-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .authentication-card{
     width: 100%;
     background-color: #FFFFFF;
     text-align: center;
-    vertical-align: -webkit-baseline-middle;
     padding: 30px;
     color: var(--foundation-grey-grey-600, #ACACAC);
   }
+
   .authentication-title{
     color: #5D9C59;
     padding: 0;
     margin: 0;
     margin-bottom: 6px;
   }
+
 .authentication-form{
   padding: 0px 50px;
 }

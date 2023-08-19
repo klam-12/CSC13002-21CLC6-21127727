@@ -1,7 +1,7 @@
 import NavBar from '../../components/navBar/navBar';
 import Footer from '../../components/footer/footer';
 import SearchTours from './sections/searchTour';
-import herobanner from '../../assets/images/test.jpg'
+import herobanner from '../../assets/images/SearchPageHerobanner.jpg'
 import SearchBar from '../../components/searchBar/searchBar';
 import './searchPage.css'
 

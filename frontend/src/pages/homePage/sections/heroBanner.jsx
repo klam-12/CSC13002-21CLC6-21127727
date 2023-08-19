@@ -1,9 +1,9 @@
-import herobanner from '../../../assets/images/test.jpg'
+import herobanner from '../../../assets/images/LandingPage.jpg'
 
 const HeroBanner = () => {
     return (
       <div className='he'>
-        <img className="homepage-herobanner" src={herobanner}/>
+        <img className="homepage-herobanner" id="header" src={herobanner}/>
       </div>
     );
 };

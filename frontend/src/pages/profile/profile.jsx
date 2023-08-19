@@ -2,7 +2,7 @@ import { Grid } from "@mui/material";
 import NavBar from "../../components/navBar/navBar";
 import Footer from "../../components/footer/footer";
 import ProfileCard from "./sections/profileCard";
-import Avatar from "../components/avatar";
+import Avatar from "../../components/avatar/avatar";
 import avatar from '../../assets/icons/avatar.jpg'
 import './profile.css'
 import ChangePasswordCard from "./sections/profileChangePassword";

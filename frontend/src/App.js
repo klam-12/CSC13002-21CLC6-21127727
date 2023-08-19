@@ -1,3 +1,4 @@
+import { Route, Routes } from 'react-router-dom';
 import SuccessNotification from './components/notification/successNoti';
 import WarningNotification from './components/notification/warningNoti';
 import './globalStyle.css';
@@ -12,7 +13,7 @@ import DetailTour from './pages/tour/detailTour';
 function App() {
   return (
     <div >
-      <HomePage></HomePage>
+      
       {/* <DetailTour></DetailTour> */}
       {/* <SearchPage></SearchPage> */}
       {/* <Payment></Payment> */}
@@ -23,9 +24,16 @@ function App() {
 
 
 
-      {/* <SignUp></SignUp> */}
-      {/* <SignIn></SignIn> */}
+      {/*  */}
+      {/*  */}
       {/* <Profile></Profile> */}
+      <Routes>
+        <Route path="/" element={<HomePage></HomePage>}></Route>
+        <Route path="/signup" element={<SignUp></SignUp>}></Route>
+        <Route path="/signin" element={<SignIn></SignIn>}></Route>
+        <Route path="/test" element={<SearchPage></SearchPage>}></Route>
+        <Route path="/profile" element={<Profile></Profile>}></Route>
+      </Routes>
     </div>
   );
 }

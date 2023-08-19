@@ -4,8 +4,10 @@
 .search-tour{
     margin: 25px 0px;
 }
+
 .search-page-herobanner{
     width: 100%;
+    opacity: 50%;
 }
 .search-page-search-bar{
     display: flex;

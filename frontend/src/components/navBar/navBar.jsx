@@ -1,31 +1,63 @@
+import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link'
+import avatar from '../../assets/icons/avatar.jpg'
 import './navBar.css'
+import Avatar from '../avatar/avatar';
+
+const id = 1
 
 const NavBar = () => {
+    const userComponents = (id) => {
+        if (id === 0) {
+          return (
+            <>
+                <li className="item">
+                    <Link to="/signup" relative="path">Đăng nhập</Link>
+                </li>
+                <li className="item">
+                    <Link to="/signin" relative="path">Đăng ký</Link>
+                </li>
+            </>
+          );
+        } else {
+          return (
+            <>
+                <li className="item">
+                    <Link to="/profile" relative="path"><Avatar image={avatar}></Avatar></Link>
+                </li>
+                <li className="item">
+                    <Link to="/signin" relative="path">Đăng xuất</Link>
+                </li>
+            </>
+          );
+        }
+      };
     return (
-        <nav className="navbarItems">
+        <nav className="navbar-items">
             <div className="container">
                 <div className="logo">
-                    <a href="#header"><> </>Travelus</a>
+                    <HashLink smooth to="/#header">Travelus</HashLink>
                 </div>
-                    <ul className="itemList">
+                    <ul className="item-list">
                     <li className="item">
-                        <a href="#form">Đăng ký</a>
+                        {/* <a href="/#aboutUs">Về chúng tôi</a> */}
+                        <HashLink smooth to="/#aboutUs">Về chúng tôi</HashLink>
+                        {/* <Link to={{pathname: '/', hash: '#aboutUs'}} relative="path">Về chúng tôi</Link> */}
                     </li>
                     <li className="item">
-                        <a href="#form">Đăng nhập</a>
+                        <Link to="/test" relative="path">Tất cả tours</Link>
                     </li>
                     <li className="item">
-                        <a href="#feedback">Feedbacks</a>
+                        {/* <a href="/#hotTours">Hot tours</a> */}
+                        <HashLink smooth to="/#hotTours">Hot tours</HashLink>
+                        {/* <Link to={{pathname: '/', hash: '#hotTours'}} relative="path">Hot tours</Link> */}
                     </li>
                     <li className="item">
-                        <a href="#hotTours">Hot tours</a>
+                        {/* <a href="/#feedback">Feedbacks</a> */}
+                        <HashLink smooth to="/#feedback">Feedbacks</HashLink>
+                        {/* <Link to={{pathname: '/', hash: '#feedback'}} relative="path">Feedbacks</Link> */}
                     </li>
-                    <li className="item">
-                        <a href="#vacationPackages">Tất cả tours</a>
-                    </li>
-                    <li className="item">
-                        <a href="#aboutUs">Về chúng tôi</a>
-                    </li>
+                    {userComponents(id)}
                     </ul>
             </div>
         </nav>

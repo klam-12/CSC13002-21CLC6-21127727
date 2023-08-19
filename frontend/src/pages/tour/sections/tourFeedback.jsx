@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Input, Rating } from '@mui/material';
 import avatar from '../../../assets/icons/avatar.jpg'
 import './tourStyles.css'
-import Avatar from '../../components/avatar';
+import Avatar from '../../../components/avatar/avatar';
 
 const ariaLabel = { 'aria-label': 'description' };
 
