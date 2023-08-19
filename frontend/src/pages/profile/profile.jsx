@@ -13,7 +13,7 @@ const Profile = (props) => {
     const [userData, setUserData] = useState(null);
     const user  = props.props;
     // console.log(user.avatar)
-    const imageUrl = user.avatar;
+    const imageUrl = user.avatar ? `http://localhost:3000${user.avatar}` : `https://social.salework.net/images/default-avatar.jpg`;
     console.log(user.avatar)
     return (
         <div>
@@ -21,9 +21,10 @@ const Profile = (props) => {
             <div className="profile-section">
                 <Grid container spacing={4}>
                     <Grid item xs={4}>
-                        <div className="profile-name-section">
-                            {/* <img style={{"height" : "100%", "width" : "50%"}} src={imageUrl} alt="" /> */}
-                            <Avatar className="profile-avatar" image={`http://localhost:3000${user.avatar}`}></Avatar>
+                        <div className="profile-name-section"> 
+                            {/* <img style={{"height" : "100%", "width" : "50%"}} src={imageUrl} alt="" /> `} {user.avatar ? `http://localhost:3000${user.avatar} : 'http://localhost:3000/media/users/defaul.png'}*/} 
+                            <Avatar className="profile-avatar" image= {imageUrl} />
+
                             <div className="profile-name-container">
                                 <h4 className="profile-name">{user.full_name}</h4>
                                 <a>Đổi avatar</a>
