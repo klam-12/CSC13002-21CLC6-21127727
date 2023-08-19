@@ -1,5 +1,7 @@
+import { Route, Routes } from 'react-router-dom';
+import SuccessNotification from './components/notification/successNoti';
+import WarningNotification from './components/notification/warningNoti';
 import React, { useContext, useEffect,useState } from 'react';
-import {  Route,Routes } from 'react-router';
 import axiosInstance from './axios'; // Import the axiosInstance
 import HomePage from './pages/homePage/homePage';
 import DetailTour from './pages/tour/detailTour';

@@ -9,7 +9,7 @@ const PaymentMethod = () => {
             <div className="payment-info-container">
             <div className="payment-choice">
                 <label for="visa">
-                    <input type="radio" value="visa" id="visa" name="topic" checked />
+                    <input type="radio" value="visa" id="visa" name="topic"/>
                     <>  </>Thẻ quốc tế
                 </label>
                 <label for="bank-transfer">

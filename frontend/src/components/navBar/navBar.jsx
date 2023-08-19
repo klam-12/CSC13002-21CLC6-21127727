@@ -1,5 +1,11 @@
+import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link'
+import avatar from '../../assets/icons/avatar.jpg'
 import React, {Fragment, useState} from 'react';
 import './navBar.css'
+import Avatar from '../avatar/avatar';
+
+const id = 1
 import {Link} from 'react-router-dom'
 import { connect } from 'react-redux'
 import { useDispatch, useSelector } from 'react-redux';
@@ -19,17 +25,20 @@ const NavBar = () => {
     const guestLinks = ()=>(
             <Fragment>
             <li className="item">
-                        <a href="register">Đăng ký</a>
+                        {/* <a href="register">Đăng ký</a> */}
+                        <Link to="/register" relative="path">Đăng nhập</Link>
                     </li>
                     <li className="item">
-                        <a href="signin">Đăng nhập</a>
+                    <Link to="/signin" relative="path">Đăng ký</Link>
+                        {/* <a href="signin">Đăng nhập</a> */}
                     </li>
             </Fragment>
     )
     const authLinks = ()=>(
         <Fragment>
              <li className="item">
-            <a href={`/profile/${loggedInUser.id}`}>{loggedInUser.full_name}</a>
+             <Link to={`/profile/${loggedInUser.id}`} relative="path"><Avatar image={loggedInUser.avatar}></Avatar></Link>
+            {/* <a href={`/profile/${loggedInUser.id}`}>{loggedInUser.full_name}</a> */}
         </li>
         <li className="item">
             <a onClick={handleLogout} >Đăng xuất</a>
@@ -47,7 +56,7 @@ const NavBar = () => {
                     
                     <a href="#header"><> </>Travelus</a>
                 </div>
-                    <ul className="itemList">
+                    <ul className="item-list">
                     <li className="item">
                         <a href="feedback">Feedbacks</a>
                     </li>

@@ -7,6 +7,8 @@ import Footer from '../../components/footer/footer';
 import HotTours from './sections/hotTours';
 import { Outlet } from 'react-router-dom';
 import hotTourLoadingComponent from './sections/hotTourLoading';
+import SearchBar from '../../components/searchBar/searchBar';
+import './homePage.css'
 
 import axiosInstance from '../../axios';
 import axios from 'axios';

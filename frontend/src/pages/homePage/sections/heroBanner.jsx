@@ -1,9 +1,10 @@
-import React from 'react';
-import herobanner from '../../../assets/images/test.jpg'
+import herobanner from '../../../assets/images/LandingPage.jpg'
 
 const HeroBanner = () => {
     return (
-      <img className="homepage-herobanner" src={herobanner}/>
+      <div className='he'>
+        <img className="homepage-herobanner" id="header" src={herobanner}/>
+      </div>
     );
 };
 export default HeroBanner;

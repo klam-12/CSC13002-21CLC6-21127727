@@ -77,13 +77,17 @@ const SignUpCard = ({onRegister}) => {
         <h2 className="authentication-title">ĐĂNG KÝ LÀM THÀNH VIÊN TRAVELUS THÔI!</h2>
         <form className="authentication-form" noValidate>
             {/* <p className="authentication-warning">Thông tin đăng ký không hợp lệ</p> */}
-            {/* <input className="authentication-info" type="text" id="name" name="username" placeholder="username" required onChange={handleChange}></input> <br></br> */}
-            <input className="authentication-info" type="password" id="password" name="password" placeholder="Mật khẩu" required onChange={handleChange}></input> <br></br>
-            <input className="authentication-info" type="text" id="full_name" name="full_name" placeholder="Họ và tên" required onChange={handleChange}></input> <br></br>
+            <input className="authentication-info" type="text" id="fullname" name="fullname" placeholder="Họ và tên" required onChange={handleChange}></input> <br></br>
             <input className="authentication-info" type="email" id="email" name="email" placeholder="Email" required onChange={handleChange}></input> <br></br>
-            <input className="authentication-info" type="number" id="phone" name="phone" placeholder="Số điện thoại"onChange={handleChange}></input> <br></br>
-            <input className="authentication-info" type="date" id="birth_date" name="birth_date" placeholder="Ngày sinh" onChange={handleChange}></input> <br></br>
-						<input className="authentication-info" type="text" id="address" name="address" placeholder="Địa chỉ nhà" onChange={handleChange}></input> <br></br>
+            <input className="authentication-info" type="password" id="password" name="password" placeholder="Mật khẩu" required onChange={handleChange}></input> <br></br>
+            <input className="authentication-info" type="tel" id="phone" name="phone" placeholder="Số điện thoại" required onChange={handleChange}></input> <br></br>
+            <input className="authentication-info" type="date" id="dob" name="dob" placeholder="Ngày sinh" required onChange={handleChange}></input> <br></br>
+            <select className="authentication-info" name="gender" id="gender">
+                <option value="male">Nam</option>
+                <option value="female">Nữ</option>
+                <option value="other">Khác</option>
+            </select>
+            <input className="authentication-info" type="text" id="address" name="address" placeholder="Địa chỉ nhà" onChange={handleChange}></input> <br></br>
             <input className="sign-up-submit" type="submit" value="Đăng ký" onClick={handleSubmit}></input> <br></br>
             <FacebookGoogleButton content="Facebook"></FacebookGoogleButton>
             <FacebookGoogleButton content="Google"></FacebookGoogleButton>

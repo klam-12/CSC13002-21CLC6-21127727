@@ -7,7 +7,7 @@ import Button from '../../../components/button/button';
 const TourDetailInfo = () => {
     return (
         <div className="tour-info-container">
-            <h2 className="tour-info-title">Tour Information</h2>
+            <h2 className="tour-info-title">Thông tin tour</h2>
             <Grid container spacing={4}>
                 <Grid item xs={5}>
                     <p>THỜI GIAN: 4 ngày 3 đêm</p>
@@ -30,11 +30,6 @@ const TourDetailInfo = () => {
                     <p>20/12/2023</p>
                 </Grid>
                 <Grid item xs={3}>
-                    <p className="tour-info-title" style={{fontWeight: '600'}}>MÃ TOUR</p>
-                    <br></br>
-                    <p>STN084-2023-01312</p>
-                </Grid>
-                <Grid item xs={3}>
                     <p className="tour-info-title" style={{fontWeight: '600'}}>GIÁ VÉ (VND)</p>
                     <br></br>
                     <p>8.000.000</p>
@@ -45,11 +40,11 @@ const TourDetailInfo = () => {
                     <Button content="Đặt ngay"></Button>
                 </Grid>
             </Grid>
-            <h2 className="tour-info-title">Description</h2>
+            <h2 className="tour-info-title">Mô tả</h2>
             <p>Welcome to Đà Nẵng, one of the most vibrant and captivating cities in Vietnam! Located along the central coast of the country, Đà Nẵng is renowned for its beautiful beaches, rich history, and warm hospitality. Let me take you on a virtual tour to explore the highlights and attractions of this charming destination.</p>
             <br></br>
             <p>As you arrive in Đà Nẵng, the first thing that captures your attention is the pristine coastline. With miles of sandy beaches and crystal-clear waters, this city offers a perfect retreat for sun-seekers and water sports enthusiasts. One of the most popular beaches here is My Khe Beach, known for its golden sands and gentle waves. It's an ideal spot to relax, soak up the sun, and enjoy various water activities like swimming, snorkeling, or jet skiing.</p>
-            <h2 className="tour-info-title">Combo 4 ngày 3 đêm có gì</h2>
+            <h2 className="tour-info-title">Combo có gì?</h2>
             <p><b>NGÀY 01: TP. HCM - HÀ NỘI (Ăn trưa, chiều)</b></p>
             <p>Buổi sáng, quý khách tập trung tại Cổng D1 - Ga đi trong nước - Sân Bay Tân Sơn Nhất. Hướng dẫn viên của Lữ hành Saigontourist đón quý khách và hỗ trợ làm thủ tục. Khởi hành ra Hà Nội (chuyến bay dự kiến VN216 lúc 07h00 hoặc (chuyến bay VN240 lúc 7h). Đáp xuống sân bay Nội Bài, xe đưa đoàn qua “đường Cổ Ngư xưa”, ngắm cảnh hồ Tây, chùa Trấn Quốc. Buổi chiều, đoàn đến trải nghiệm tuyến tàu điện trên cao Cát Linh - Hà Đông. Buổi tối, đoàn tự do dạo quanh phố đi bộ Hồ Gươm, tham quan “36 phố phường”- khu phố cổ với những ngành nghề đặc trưng và truyền thống của cư dân Thủ đô. Nghỉ đêm tại Hà Nội.
 </p>

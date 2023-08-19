@@ -1,13 +1,18 @@
-.navbarItems {
+.navbar-items {
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.50);
+    padding: 1px;
     position: sticky;
     top: 0;
 }
-.itemList {
+.item-list {
     list-style-type: none;
     margin: 0;
     padding: 10px;
     overflow: hidden;
+    display: flex;
     justify-content: center;
+    align-items: center;
     width: 100%;
 }
 li {
@@ -15,13 +20,14 @@ li {
 }
 
 li a {
+    position: relative;
     color: #5D9C59;
     text-align: center;
     padding: 0 15px 0 15px;
     text-decoration: none;
     font-size: 22px;
     font-weight: 700;
-    vertical-align: middle;
+    vertical-align: -webkit-baseline-middle;
 }
 
 li.item a:hover {
@@ -30,17 +36,12 @@ li.item a:hover {
     padding-top: 10px;
     padding-bottom: 10px;
 }
-.navbarItems {
-    z-index: 10;
-    background-color: rgba(255, 255, 255, 0.50);
-    ;
-    padding: 1px;
-}
 .container {
     padding: 18px 120px 18px 120px;
     width: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .logo {
