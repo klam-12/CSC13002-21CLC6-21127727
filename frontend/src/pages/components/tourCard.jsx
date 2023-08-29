@@ -14,7 +14,7 @@ const TourCard = (props) => {
         <div className="tour-card-container">
           <h4 className="tour-card-name"><b> {post.from_location} - {post.to_location}</b></h4>
           <Rating name="read-only" value={post.avg_star} readOnly />
-            <p className="tour-info">{post.detail}</p>
+            <p className="tour-info">{post.detail.substr(0, 150)}... </p>
             <hr className="solid"/>
         </div>
         <div className="tour-price-container">

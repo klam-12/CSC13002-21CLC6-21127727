@@ -10,8 +10,8 @@ import SignUp from './pages/authentication/signUp';
 import Payment from './pages/payment/payment';
 import Profile from './pages/profile/profile';
 import SearchPage from './pages/searchPage/searchPage';
-import NavBar from './components/navBar/navBar';
-import { Outlet } from 'react-router-dom';
+// import DetailTour from './pages/tour/detailTour';
+
 const App = () => {
   
   let storedUser = localStorage.getItem("user") !== undefined ? JSON.parse(localStorage.getItem("user")) : '';
@@ -41,38 +41,10 @@ const App = () => {
 				<Route path="/register" element={<SignUp onRegister={handleLogin} />} />
 				<Route path="/signin" element={<SignIn onRegister={handleLogin} />} />
 				<Route path={`/profile/${loggedInUser.username}`} element={<Profile props = {loggedInUser}/>} />
+        <Route path="/detail/:id" element={<DetailTour/>} />
+        <Route path="/search" element={<SearchPage/>} />
 			</Routes>
     </React.StrictMode> 
 	);
 };
-
-// function App() {
-//     return (
-//         <Router>
-//             <div>
-//                 <nav>
-//                     <ul>
-//                         <li><Link to="/">Home</Link></li>
-//                         {loggedInUser ? (
-//                             <>
-//                                 <li><Link to="/profile">Profile</Link></li>
-//                                 <li onClick={handleLogout}>Logout</li>
-//                                 <li>Welcome, {loggedInUser.username}!</li>
-//                             </>
-//                         ) : (
-//                             <>
-//                                 <li><Link to="/register">Register</Link></li>
-//                                 <li><Link to="/login">Login</Link></li>
-//                             </>
-//                         )}
-//                     </ul>
-//                 </nav>
-//                 <Route path="/register" render={() => <Register onRegister={handleLogin} />} />
-//                 <Route path="/login" render={() => <Login onLogin={handleLogin} />} />
-//                 <Route path="/profile" component={Profile} />
-//             </div>
-//         </Router>
-//     );
-// }
-
 export default App;

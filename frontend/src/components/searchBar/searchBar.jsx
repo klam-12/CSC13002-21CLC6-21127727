@@ -40,6 +40,7 @@ const SearchBar = () => {
                   });
                     console.log(res);
                 console.log(res.data);
+                window.location.reload();
             });
         
             // You can redirect to the user's dashboard or perform other actions

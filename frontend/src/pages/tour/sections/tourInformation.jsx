@@ -3,7 +3,9 @@ import { Grid } from "@mui/material";
 import TourIndex from "./tourIndex";
 import TourDetailInfo from "./tourDetailInfo";
 
-const TourInfo = () => {
+const TourInfo = ( {props}) => {
+    const post = props[0];
+    console.log(post.id);
     return (
     <div>
         <section className="tour-info-section">
@@ -12,7 +14,7 @@ const TourInfo = () => {
                         <TourIndex></TourIndex>
                     </Grid> 
                     <Grid item xs={8}>
-                        <TourDetailInfo></TourDetailInfo>
+                        <TourDetailInfo post = {post} ></TourDetailInfo>
                     </Grid>
                 </Grid>
         </section>

@@ -4,25 +4,31 @@ import avatar from '../../assets/icons/avatar.jpg'
 import React, {Fragment, useState} from 'react';
 import './navBar.css'
 import Avatar from '../avatar/avatar';
-import { connect } from 'react-redux'
-import { useDispatch, useSelector } from 'react-redux';
-import {useAlert} from 'react-alert'
-import SignIn from '../../pages/authentication/signIn';
-import SignUp from '../../pages/authentication/signUp';
-import Profile from '../../pages/profile/profile';
-import {   BrowserRouter as Router} from 'react-router-dom';
-import { Route, Routes } from 'react-router-dom';
 import axios from 'axios';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+
+const useImageUrl = (loggedInUser) => {
+    const [imageUrl, setImageUrl] = useState('');
+  
+    useEffect(() => {
+      if (loggedInUser) {
+        const userAvatar = loggedInUser.avatar;
+        const defaultAvatarUrl = 'https://social.salework.net/images/default-avatar.jpg';
+        console.log('http://localhost:3000'+ userAvatar)
+        setImageUrl(userAvatar ? `http://localhost:3000${userAvatar}` : defaultAvatarUrl);
+      }
+    }, [loggedInUser]);
+  
+    return imageUrl;
+  };
+
+
 const NavBar = () => {
     const navigate = useNavigate();
     let storedUser = localStorage.getItem("user") !== undefined ? JSON.parse(localStorage.getItem("user")) : null;
-  const [loggedInUser, setLoggedInUser] = useState(storedUser ? storedUser : null);
-    // const handleLogout = () => {
-        
-    //     localStorage.removeItem('user');
-    //     setLoggedInUser(null);
-    // };
+    const [loggedInUser, setLoggedInUser] = useState(storedUser ? storedUser : null);
     const handleLogout = async () => {
         try {
             localStorage.removeItem('user');
@@ -34,11 +40,7 @@ const NavBar = () => {
           console.error('Đăng xuất không thành công:', error);
         }
       };
-    let imageUrl;
-    if (loggedInUser != null)
-    {
-        imageUrl = loggedInUser.avatar ? `http://localhost:3000${loggedInUser.avatar}` : `https://social.salework.net/images/default-avatar.jpg`;
-    }
+    
     const guestLinks = ()=>(
             <Fragment>
             <li className="item">
@@ -49,7 +51,12 @@ const NavBar = () => {
                     </li>
             </Fragment>
     )
-    const authLinks = ()=>(
+    const authLinks = ()=>
+    {
+        const imageUrl = useImageUrl(loggedInUser);
+        console.log(loggedInUser.email)
+    return (
+        
         <Fragment>
              <li className="item">
              <Link to={`/profile/${loggedInUser.id}`} relative="path">
@@ -61,9 +68,8 @@ const NavBar = () => {
         </li>
                 
         </Fragment>
-    )
+    )}
 
-    
     return (
             <div>
         <nav className="navbarItems">
