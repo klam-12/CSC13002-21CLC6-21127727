@@ -29,10 +29,9 @@ const App = () => {
 
   useEffect(() => {
 		axiosInstance.get().then((res) => {
-			console.log("app")
 		});
 	}, []);
-  
+  console.log(loggedInUser)
 	return (
 		<React.StrictMode>
       <Routes>
@@ -40,9 +39,9 @@ const App = () => {
         <Route path="/search/:tour_name" element={<DetailTour/>}/>
 				<Route path="/register" element={<SignUp onRegister={handleLogin} />} />
 				<Route path="/signin" element={<SignIn onRegister={handleLogin} />} />
-				<Route path={`/profile/${loggedInUser.username}`} element={<Profile props = {loggedInUser}/>} />
+				<Route path={`/profile/${loggedInUser.email}`} element={<Profile props = {loggedInUser}/>} />
         <Route path="/detail/:id" element={<DetailTour/>} />
-        <Route path="/search" element={<SearchPage/>} />
+        <Route path="/tour/search" element={<SearchPage/>} />
 			</Routes>
     </React.StrictMode> 
 	);

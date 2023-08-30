@@ -29,21 +29,19 @@ const SearchBar = () => {
         e.preventDefault();
         console.log(formData);
         try {
-            const response = axiosInstance.get('/search' + '?search=' + formData.search_location, { 
+            const response = axios.get(`http://127.0.0.1:8000/tour/search?end_location=${formData.search_location !=undefined ? formData.search_location : ''}&start_date=${formData.search_date!=undefined ? formData.search_date :''}&price=${formData.price !=undefined ? formData.price : ''}`,
+            {
                 search_location: formData.search_location,
                 search_date: formData.search_date,
                 price: formData.price,
             }).then((res) => {
-                navigate({
-                    pathname: '/search',
-                    search: '?search=' + formData.search_location + '/'+ formData.search_date+'/'+ formData.price,
-                  });
+                navigate(`/tour/search?end_location=${formData.search_location !=undefined ? formData.search_location : ''}&start_date=${formData.search_date!=undefined ? formData.search_date :''}&price=${formData.price !=undefined ? formData.price : ''}`);
                     console.log(res);
                 console.log(res.data);
                 window.location.reload();
             });
         
-            // You can redirect to the user's dashboard or perform other actions
+
         } catch (error) {
             console.error(error);
             
@@ -57,7 +55,8 @@ const SearchBar = () => {
 		// 				onRequestSearch={() => goSearch(data.search)}
         <div className="search-bar">
             <form noValidate >
-                <input className="search-bar-item" type="text" id="search-location" name="search_location" placeholder="Bạn muốn đi đâu?" style={{width: '500px'}} onChange={handleChange}></input>
+                <input className="search-bar-item" type="text" id="search-location" name="search_location" placeholder="Bạn muốn đi đâu?" style={{width: '500px'}} onChange={handleChange}>
+                </input>
                 <input className="search-bar-item" type="date" id="search-date" name="search_date" onChange={handleChange}></input>
                 <select className="search-bar-item" id="search-price" onChange={handleChange}>
                     <option className="price-option" name="price">Giá tiền (VND)</option>

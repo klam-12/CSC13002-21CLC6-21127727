@@ -33,9 +33,10 @@ const NavBar = () => {
         try {
             localStorage.removeItem('user');
             setLoggedInUser(null);
-          await axios.get('http://127.0.0.1:8000/tour/logout/blacklist/'); // Gửi yêu cầu đăng xuất đến API của Django
-          // Sau khi đăng xuất, điều hướng người dùng về trang đăng nhập hoặc trang chủ
-          navigate('/login'); // Hoặc '/home' tùy thuộc vào thiết lập của bạn
+          await axios.get('http://127.0.0.1:8000/tour/user/logout/blacklist/'); // Gửi yêu cầu đăng xuất đến API của Django
+          
+          window.location.reload();
+          navigate('/login'); 
         } catch (error) {
           console.error('Đăng xuất không thành công:', error);
         }
@@ -59,7 +60,7 @@ const NavBar = () => {
         
         <Fragment>
              <li className="item">
-             <Link to={`/profile/${loggedInUser.id}`} relative="path">
+             <Link to={`/profile/${loggedInUser.email}`} relative="path">
                 <Avatar image={imageUrl}></Avatar>
             </Link>
         </li>
@@ -75,7 +76,8 @@ const NavBar = () => {
         <nav className="navbarItems">
             <div className="container">
             <div className="logo">
-                    <HashLink smooth to="/#header">Travelus</HashLink>
+                
+                    <HashLink smooth to="/tour">Travelus</HashLink>
                 </div>
                     <ul className="item-list">
                     <li className="item">

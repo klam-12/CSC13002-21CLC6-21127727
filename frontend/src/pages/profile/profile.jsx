@@ -12,7 +12,7 @@ import image  from '/Users/user/CSC13002-21CLC6-21127727/frontend/src/avt.png'
 const Profile = (props) => {
     const [userData, setUserData] = useState(null);
     const user  = props.props;
-    // console.log(user.avatar)
+    console.log(user)
     const imageUrl = user.avatar ? `http://localhost:3000${user.avatar}` : `https://social.salework.net/images/default-avatar.jpg`;
     console.log(user.avatar)
     return (

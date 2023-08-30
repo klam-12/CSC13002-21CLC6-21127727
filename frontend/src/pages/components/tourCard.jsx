@@ -7,7 +7,6 @@ import { Rating } from '@mui/material';
 const TourCard = (props) => {
   const post  = props.props;
     const [value, setValue] = React.useState(5);
-    // console.log(post);
     return (
         <div className="tour-card">
             <img src={test} alt="Avatar" style={{width:'100%'}}/>
@@ -18,7 +17,7 @@ const TourCard = (props) => {
             <hr className="solid"/>
         </div>
         <div className="tour-price-container">
-          <span><span className="tour-info-price">From <span class="tour-price">{post.price}</span><TourCardButton></TourCardButton></span></span> 
+          <span><span className="tour-info-price">From <span class="tour-price">{post.price}</span><TourCardButton id = {post.id}></TourCardButton></span></span> 
         </div>
       </div>
     );
