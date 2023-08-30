@@ -82,6 +82,7 @@
     border-radius: 5px;
     border: 1px solid var(--primary-color, #5D9C59);
     background: var(--foundation-white-white-50, #FDFDFD);
+    cursor: default;
   }
   .taken-tour{
     padding: 0;

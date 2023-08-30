@@ -5,15 +5,14 @@ h1 {
 .homepage-section {
     padding: 60px 120px 60px 120px;
 }
-.he{
-    position: relative;
-    top: 0;
-    left: 0;
+.herobanner-container{
+    width: 100%; 
+    height: 540px;
 }
 .homepage-herobanner{
-    
-    width: 100%;
-    height: 100%;
+    width: 100%; 
+    height: 540px;
+    object-fit: cover;
 }
 
 

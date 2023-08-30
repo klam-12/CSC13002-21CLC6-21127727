@@ -31,7 +31,7 @@ function App() {
         <Route path="/" element={<HomePage></HomePage>}></Route>
         <Route path="/signup" element={<SignUp></SignUp>}></Route>
         <Route path="/signin" element={<SignIn></SignIn>}></Route>
-        <Route path="/test" element={<SearchPage></SearchPage>}></Route>
+        <Route path="/test" element={<DetailTour></DetailTour>}></Route>
         <Route path="/profile" element={<Profile></Profile>}></Route>
       </Routes>
     </div>

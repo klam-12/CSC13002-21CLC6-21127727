@@ -1,5 +1,9 @@
+import { Link } from 'react-router-dom';
+import { Grid } from '@mui/material';
 import '../authentication.css'
 import FacebookGoogleButton from './fb_ggButton';
+import gg from '../../../assets/icons/gg.svg'
+import fb from '../../../assets/icons/fb.svg'
 
 const SignInCard = () => {
     return (
@@ -11,9 +15,16 @@ const SignInCard = () => {
             <input className="authentication-info" type="text" id="password" name="password" placeholder="Mật khẩu"></input> <br></br>
             <input className="sign-in-submit" type="submit" value="Đăng nhập"></input>
             <p className="forgot-password"><a>Quên mật khẩu</a></p>
-            <FacebookGoogleButton content="Facebook"></FacebookGoogleButton>
-            <FacebookGoogleButton content="Google"></FacebookGoogleButton>
-            <p>Bạn mới đến Travelus? <a className="sign-up-link">Đăng ký</a></p>
+            <br></br>
+            <Grid container spacing={2}>
+                <Grid item xs={6}>
+                    <FacebookGoogleButton src={fb} content="Facebook"></FacebookGoogleButton>
+                </Grid>
+                <Grid item xs={6}>
+                    <FacebookGoogleButton src={gg} content="Google"></FacebookGoogleButton>
+                </Grid>
+            </Grid>
+            <p>Bạn mới đến Travelus? <Link to="/signup" relative="path" className="sign-up-link">Đăng ký</Link></p>
         </form>
     </div>
     );

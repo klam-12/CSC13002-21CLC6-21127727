@@ -4,7 +4,7 @@ import avatar from '../../assets/icons/avatar.jpg'
 import './navBar.css'
 import Avatar from '../avatar/avatar';
 
-const id = 1
+const id = 0
 
 const NavBar = () => {
     const userComponents = (id) => {
@@ -12,10 +12,10 @@ const NavBar = () => {
           return (
             <>
                 <li className="item">
-                    <Link to="/signup" relative="path">Đăng nhập</Link>
+                    <Link to="/signin" relative="path">Đăng nhập</Link>
                 </li>
                 <li className="item">
-                    <Link to="/signin" relative="path">Đăng ký</Link>
+                    <Link to="/signup" relative="path">Đăng ký</Link>
                 </li>
             </>
           );

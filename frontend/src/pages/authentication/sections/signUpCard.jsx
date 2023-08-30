@@ -1,5 +1,9 @@
+import { Link } from 'react-router-dom';
 import '../authentication.css'
 import FacebookGoogleButton from './fb_ggButton';
+import gg from '../../../assets/icons/gg.svg'
+import fb from '../../../assets/icons/fb.svg'
+import { Grid } from '@mui/material';
 
 const SignUpCard = () => {
     return (
@@ -19,9 +23,15 @@ const SignUpCard = () => {
             </select>
             <input className="authentication-info" type="text" id="address" name="address" placeholder="Địa chỉ nhà"></input> <br></br>
             <input className="sign-up-submit" type="submit" value="Đăng ký"></input> <br></br>
-            <FacebookGoogleButton content="Facebook"></FacebookGoogleButton>
-            <FacebookGoogleButton content="Google"></FacebookGoogleButton>
-            <p>Bạn đã có tài khoản? <a className="sign-in-link">Đăng nhập</a></p>
+            <Grid container spacing={2}>
+                <Grid item xs={6}>
+                    <FacebookGoogleButton src={fb} content="Facebook"></FacebookGoogleButton>
+                </Grid>
+                <Grid item xs={6}>
+                    <FacebookGoogleButton src={gg} content="Google"></FacebookGoogleButton>
+                </Grid>
+            </Grid>
+            <p>Bạn đã có tài khoản? <Link to="/signin" relative="path" className="sign-in-link">Đăng nhập</Link></p>
         </form>
     </div>
     );

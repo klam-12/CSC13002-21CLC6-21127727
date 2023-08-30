@@ -3,7 +3,7 @@ import './tourStyles.css'
 
 const TourHeroBanner = () => {
     return (
-      <div>
+      <div className="detail-tour-herobanner-container">
           <img className="detail-tour-herobanner" src={herobanner}/>
           <div className="detail-tour-herobanner-text-container">
             <h2 className="detail-tour-herobanner-text">
