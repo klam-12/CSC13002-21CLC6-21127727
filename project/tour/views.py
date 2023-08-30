@@ -61,7 +61,7 @@ class ScheduleView(APIView):
         
 @api_view(['GET'])
 def recommend_view(request):
-    registers = TourStartDate.objects.values('tour_id').annotate(total_stars=Avg('register_tourstartdateid__star')).order_by('-total_stars')
+    registers = TourStartDate.objects.values('tour_id').annotate(total_stars=Avg('register_tourstartdateid__star')).order_by('-total_stars')[:4]
     list_tour_id = []
     for register in registers:
         list_tour_id.append(register['tour_id'])
@@ -74,7 +74,7 @@ def recommend_view(request):
 def search_tour_view(request):
     order_end_location=request.GET.get('end_location')
     order_start_date=request.GET.get('start_date')
-
+    # if order_start_date !=''
     #get index of Location 
     Locations=Location.objects.filter(location_name__icontains=order_end_location).all()
     list_location=[]
@@ -103,3 +103,63 @@ def detail_tour_view(request,id):
     
     return Response(data=tour_data.data,status=status.HTTP_200_OK)
     
+
+    
+@api_view(['GET'])
+def commend_view(request,id):
+    tourStartDates=TourStartDate.objects.filter(tour_id=id).all()
+    listIdStartDate=[]
+    for tourStarDate in tourStartDates:
+        listIdStartDate.append(tourStarDate.id)
+    registers=Register.objects.filter(tour_startdate_id__in=listIdStartDate).all()
+    commend_data=CommendSerializer(registers,many=True)
+    return Response(data=commend_data.data,status=status.HTTP_200_OK)
+
+# @api_view(['GET'])
+# def show_payment(request, id, date):
+@api_view(['GET'])
+def listCustomer_view(request, tour_startdate_id):
+    bookings=Register.objects.filter(tour_startdate_id=tour_startdate_id).all()
+    custommer_data=listCustomerSerializer(bookings, many=True)
+    return Response(data=custommer_data.data,status=status.HTTP_200_OK)
+
+
+@api_view(['GET','POST'])
+def booking_view( request,id):# id startdate, id user
+    if request.method=='GET':
+        order_id_start_date=request.GET.get('id_start_date')
+        order_id_user=request.GET.get('id_user')
+        
+        
+        tourstartdate=TourStartDate.objects.filter(id=order_id_start_date)
+        
+        
+        user=NewUser.objects.filter(id=order_id_user)
+        
+        data1 =BookingTourSerializer(tourstartdate,many=True)
+        data2=BookingUserSerializer(user,many=True)
+        merge={
+            'tour_data':data1.data,
+            'user_data':data2.data,
+        }
+        return Response(merge,status=status.HTTP_200_OK)
+    elif request.method=='POST':
+        data={
+            'acc_id':request.GET.get('id_user'),
+            'tour_startdate_id':request.GET.get('id_start_date'),
+            'star': None
+        }
+        serializer = PostBookingSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+@api_view(['GET'])
+def alltour_view(request):
+    tours=Tour.objects.all()
+    data=SearchSerializer(tours,many=True)
+    return Response(data=data.data,status=status.HTTP_200_OK)

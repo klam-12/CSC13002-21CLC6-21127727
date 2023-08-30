@@ -1,8 +1,9 @@
 from rest_framework import serializers
+from rest_framework.fields import empty
 from app.models import *
 from rest_framework.views import APIView
 from django.db.models import Avg
-
+from users.models import *
 
 class TourStartSerializer(serializers.ModelSerializer):
   class Meta:
@@ -108,3 +109,63 @@ class DetailTourSerializer(serializers.ModelSerializer):
       result.append({"Heading":schedule.heading,"Activity":schedule.activity})
     return result
   
+  
+class CommendSerializer(serializers.ModelSerializer):
+  ava=serializers.SerializerMethodField()
+  class Meta:
+    model= Register
+    fields=['comment','star','acc_id','ava']
+  def get_ava(self,obj):
+    user=obj.acc_id.full_name
+    return user
+
+class listCustomerSerializer(serializers.ModelSerializer):
+  avatar=serializers.SerializerMethodField()
+  class Meta:
+    model=Register
+    fields=['avatar','comment']
+  def get_avatar(self,obj):
+    avatar=obj.acc_id.avatar
+    return avatar
+  
+class BookingTourSerializer(serializers.ModelSerializer):
+  #ten tour, ma tour, thoi gian, huong dan vien, gia , end_location, to_location
+  name_tour=serializers.SerializerMethodField()
+  price=serializers.SerializerMethodField()
+  from_location=serializers.SerializerMethodField()
+  to_location=serializers.SerializerMethodField()
+  guide=serializers.SerializerMethodField()
+  
+  class Meta:
+    model=TourStartDate
+    fields=['name_tour','tour_id','start_date','price','from_location','to_location','guide']
+  def get_name_tour(self, obj):
+    tour=obj.tour_id.tour_name
+    return tour
+  def get_price(self,obj):
+    return obj.tour_id.price
+  def get_from_location(sefl,obj):
+    tour=obj.tour_id.end_location_Id.location_name
+    return tour
+  def get_to_location(sefl,obj):
+    tour=obj.tour_id.start_location_Id.location_name
+    
+    return tour
+  def get_guide(self,obj):
+    temp=obj.tour_id.tour_guide.full_name
+    return temp
+    
+    
+class BookingUserSerializer(serializers.ModelSerializer):
+
+  class Meta:
+    model= NewUser
+    fields=['id','full_name','email','phone']
+
+
+class PostBookingSerializer(serializers.ModelSerializer):
+  class Meta:
+    model=Register
+    fields=['acc_id','tour_startdate_id','star']
+
+    

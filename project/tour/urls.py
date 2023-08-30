@@ -12,5 +12,10 @@ urlpatterns = [
     path('schedule',ScheduleView.as_view()),
     path('recommend', views.recommend_view),
     path('search',views.search_tour_view),
-    path('detail/<str:id>/',views.detail_tour_view)
+    path('detail/<str:id>',views.detail_tour_view),
+    path('comment/<str:id>',views.commend_view),
+    path('alltour',views.alltour_view),
+    path('listCustomer/<str:tour_startdate_id>',views.listCustomer_view),
+    path('detail/<str:id>/payment',views.booking_view),
+    
 ]   
