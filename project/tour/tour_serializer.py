@@ -56,17 +56,12 @@ class ScheduleSerializer(serializers.ModelSerializer):
       fields = ['id','date','activity','location_id','tour_id']
         
 class SearchSerializer(serializers.ModelSerializer):
-  from_location = serializers.SerializerMethodField()
-  to_location = serializers.SerializerMethodField()
+  heading=serializers.SerializerMethodField()
   avg_star = serializers.SerializerMethodField()
   class Meta:
     model =Tour 
-    fields = ['id', 'from_location', 'to_location','avg_star', 'price','detail','main_picture']
-  def get_from_location(self, obj):
-    return obj.start_location_Id.location_name
-  
-  def get_to_location(self, obj):
-    return obj.end_location_Id.location_name
+    fields = ['id', 'tour_name','avg_star', 'price','detail','main_picture','heading']
+
   
   def get_avg_star(self, obj):
     tourstartdates = obj.tourstartdate_tourid.all()
@@ -77,7 +72,12 @@ class SearchSerializer(serializers.ModelSerializer):
       star += cur_star if cur_star else 0
     return star/count if count >=1 else 0
 
-
+  def get_heading(self,obj):
+    schedules=obj.schedule_tourid.all()
+    result=[]
+    for schedule in schedules:
+      result.append(schedule.heading)
+    return result
     
     
 class DetailTourSerializer(serializers.ModelSerializer):
@@ -123,10 +123,10 @@ class listCustomerSerializer(serializers.ModelSerializer):
   avatar=serializers.SerializerMethodField()
   class Meta:
     model=Register
-    fields=['avatar','comment']
+    fields=['avatar','comment','star']
   def get_avatar(self,obj):
     avatar=obj.acc_id.avatar
-    return avatar
+    return 1
   
 class BookingTourSerializer(serializers.ModelSerializer):
   #ten tour, ma tour, thoi gian, huong dan vien, gia , end_location, to_location
