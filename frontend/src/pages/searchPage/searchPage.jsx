@@ -23,19 +23,19 @@ const location = useLocation();
     const start_date = queryParams.get('start_date');
     const price = queryParams.get('price');
     const apiUrl = `http://127.0.0.1:8000/tour/search?end_location=${end_location}&start_date=${start_date}&price=${price}`;
-
-    // Fetch search results from the backend
-    axios
-      .get(apiUrl)
-      .then((res) => {
-        const allPosts = res.data;
-        setAppState({ posts: allPosts, loading: false }); // Update loading state
-      })
-      .catch((error) => {
-        console.error('Error fetching search results:', error);
-        setAppState({ posts: [], loading: false }); // Update loading state in case of error
-      });
-  }, []);
+    
+  axios
+  .get(apiUrl)
+  .then((res) => {
+    const allPosts = res.data;
+    setAppState({ posts: allPosts, loading: false });
+    console.log(res.data);
+  })
+  .catch((error) => {
+    console.error('Error fetching search results:', error);
+    setAppState({ posts: [], loading: false }); // Handle error by setting posts to an empty array
+  });
+}, []);
     return (
         <div>
             <NavBar></NavBar>

@@ -23,10 +23,3 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
-
-        {/* <Route path="/signin" element={<SignIn/>}  /> */}
-        {/* <Route path="/profile/:username" element={<Profile/>}/> */}
-
-        {/* <Route path="/tour/register" element={<SignUp/>}  /> */}
-        {/* <Route exact path='/' element={<App/>} /> */}
-				{/* <Route exact path="" component={App} /> */}

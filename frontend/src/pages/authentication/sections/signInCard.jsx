@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const SignInCard = () => {
+	
     const navigate = useNavigate();
     const initialFormData = Object.freeze({
 		email: "",
@@ -26,24 +27,72 @@ const SignInCard = () => {
 		e.preventDefault();
 		console.log(formData);
 
-		axiosInstance
-			.post(`/user/signin/`, {
-				email: formData.email,
-				password: formData.password,
-			})
-			.then((res) => {
-				console.log('API response:', res.data);
-				localStorage.setItem('access_token', res.data.access);
-				localStorage.setItem('refresh_token', res.data.refresh);
-				localStorage.setItem('user', JSON.stringify(res.data.user));
-						axiosInstance.defaults.headers['Authorization'] =
-					'JWT ' + localStorage.getItem('access_token');
-					console.log(localStorage.getItem('user'))
-					console.log(JSON.stringify(res.data.user))
-				navigate('/tour');
-			});
-	};
+	// 	axiosInstance
+	// 		.post(`/user/token/`, {
+	// 			email: formData.email,
+	// 			password: formData.password,
+	// 		})
+	// 		.then((res) => {
+	// 			localStorage.setItem('access_token', res.data.access_token);
+	// 			localStorage.setItem('refresh_token', res.data.refresh);
+	// 			// localStorage.setItem('user', JSON.stringify(res.data.user));
+	// 			// 		axiosInstance.defaults.cheaders['Authorization'] =
+	// 			// 	'JWT ' + localStorage.getItem('access_token');
+	// 			// console.log(localStorage.getItem('user'))
+	// 			// console.log(JSON.stringify(res.data.user))
+	// 			console.log(res.data.access_token)
+	// 			// navigate('/tour');
+	// 		});
+	// };
+	axiosInstance
+    .post(`/user/token/`, {
+      email: formData.email,
+      password: formData.password,
+    })
+    .then(async (res) => {
+      try {
+        const access_token = res.data.access;
+        const refresh_token = res.data.refresh;
 
+        localStorage.setItem('access_token', access_token);
+        localStorage.setItem('refresh_token', refresh_token);
+				axiosInstance.defaults.headers['Authorization'] =
+					'Bearer ' + localStorage.getItem('access_token');
+        // You can perform additional actions after successful login here
+
+        console.log(access_token);
+			// 		axiosInstance
+			// 			.get(`/user/profile/`
+			// 			// {
+			// 			// 	headers: {
+			// 			// 		Authorization: `Bearer ${access_token}`,
+			// 			// 	},
+			// 			// }
+			// 			)
+			// 			.then((profileRes) => {
+			// 				const profileData = profileRes.data;
+			// 				console.log(profileData); // Display profile data
+
+			// 				// Save profile data to localStorage
+			// 				localStorage.setItem('user', JSON.stringify(profileData));
+			// 			})
+			// 			.catch((profileError) => {
+			// 				console.error('Error fetching profile:', profileError);
+			// 			});
+			// 		// console.log(JSON.parse(localStorage.getItem("user")));
+			// 		// 
+        navigate('/tour');
+				window.location.reload();
+      } catch (error) {
+        console.error('Error handling response:', error);
+        // Handle response error here
+      }
+    })
+    .catch((error) => {
+      console.error('Login error:', error);
+      // Handle login error here
+    });
+	};
     return (
     <div className="authentication-card">
         <form className="authentication-form">

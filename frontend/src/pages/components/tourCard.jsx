@@ -16,6 +16,7 @@ const TourCard = (props) => {
             <p className="tour-info">{post.detail.substr(0, 150)}... </p>
             <hr className="solid"/>
         </div>
+        
         <div className="tour-price-container">
           <span><span className="tour-info-price">From <span class="tour-price">{post.price}</span><TourCardButton id = {post.id}></TourCardButton></span></span> 
         </div>

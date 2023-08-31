@@ -7,6 +7,7 @@ import Avatar from '../avatar/avatar';
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axiosInstance from '../../axios';
 
 
 const useImageUrl = (loggedInUser) => {
@@ -30,16 +31,60 @@ const NavBar = () => {
     let storedUser = localStorage.getItem("user") !== undefined ? JSON.parse(localStorage.getItem("user")) : null;
     const [loggedInUser, setLoggedInUser] = useState(storedUser ? storedUser : null);
     const handleLogout = async () => {
+        // try {
+            
+        //   await axios.post('http://127.0.0.1:8000/tour/user/logout'); // Gửi yêu cầu đăng xuất đến API của Django
+        //   window.location.reload();
+        //   navigate('/login'); 
+        //   localStorage.removeItem('user');
+        //   localStorage.removeItem('access_token');
+        //     setLoggedInUser(null);
+        // } catch (error) {
+        //   console.error('Đăng xuất không thành công:', error);
+        // }
+        // localStorage.removeItem('user');
+        // localStorage.removeItem('access_token');
+        const refresh_token = localStorage.getItem('refresh_token');
+        console.log(refresh_token)
         try {
-            localStorage.removeItem('user');
-            setLoggedInUser(null);
-          await axios.get('http://127.0.0.1:8000/tour/user/logout/blacklist/'); // Gửi yêu cầu đăng xuất đến API của Django
-          
-          window.location.reload();
+            const refresh_token = localStorage.getItem('refresh_token');
+            console.log(refresh_token)
+            if (refresh_token) {
+              // headers = {
+              //   'Authorization': `Bearer ${refresh_token}`
+              // }
+              // const response = await axiosInstance.post('/user/logout/', { refresh_token });
+              const access_token = localStorage.getItem('access_token');
+              const auth = `Bearer ` + access_token
+              
+              console.log(access_token)
+              console.log(auth)
+
+              const response = await axiosInstance.post(
+                '/user/logout/', refresh_token ,
+                // {
+                //   headers: {
+                //     'Authorization': auth, 
+                //   }
+                // }
+              );
+              // const response = axiosInstance.post('user/logout/', refresh_token);
+              if (response.status === 205) {
+                // Đăng xuất thành công
+                localStorage.removeItem('access_token');
+                localStorage.removeItem('refresh_token');
+                localStorage.removeItem('user');
+                window.location.reload();
           navigate('/login'); 
-        } catch (error) {
-          console.error('Đăng xuất không thành công:', error);
-        }
+               
+              } else {
+                // Xử lý lỗi đăng xuất không thành công
+                console.error('Đăng xuất không thành công.');
+              }
+            }
+          } catch (error) {
+            console.error('Lỗi khi gửi yêu cầu đăng xuất:', error);
+          }
       };
     
     const guestLinks = ()=>(
@@ -60,7 +105,7 @@ const NavBar = () => {
         
         <Fragment>
              <li className="item">
-             <Link to={`/profile/${loggedInUser.email}`} relative="path">
+             <Link to={`/profile`} relative="path">
                 <Avatar image={imageUrl}></Avatar>
             </Link>
         </li>

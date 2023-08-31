@@ -9,20 +9,30 @@ import './profile.css'
 import ChangePasswordCard from "./sections/profileChangePassword";
 import TakenTour from "./sections/profileTakenTour";
 import image  from '/Users/user/CSC13002-21CLC6-21127727/frontend/src/avt.png'
+// import { Link } from 'react-router-dom';
+import { Routes, useLocation } from 'react-router-dom';
+import { Route, Switch, Link } from 'react-router-dom';
 const Profile = (props) => {
     const [userData, setUserData] = useState(null);
     const user  = props.props;
     console.log(user)
     const imageUrl = user.avatar ? `http://localhost:3000${user.avatar}` : `https://social.salework.net/images/default-avatar.jpg`;
-    console.log(user.avatar)
+    const location = useLocation();
+    console.log(location.pathname)
+    
     return (
         <div>
+            {/* <Routes>
+                <Route path="/profile/changePassword" element={<ChangePasswordCard/>} />
+                <Route path="/profile/takenTour" component={TakenTour} />
+                <Route path="/profile" render={() => <ProfileCard props={user} />} />
+            </Routes> */}
             <NavBar></NavBar>
             <div className="profile-section">
                 <Grid container spacing={4}>
                     <Grid item xs={4}>
                         <div className="profile-name-section"> 
-                            {/* <img style={{"height" : "100%", "width" : "50%"}} src={imageUrl} alt="" /> `} {user.avatar ? `http://localhost:3000${user.avatar} : 'http://localhost:3000/media/users/defaul.png'}*/} 
+                            
                             <Avatar className="profile-avatar" image= {imageUrl} />
 
                             <div className="profile-name-container">
@@ -34,14 +44,18 @@ const Profile = (props) => {
                             <div className="my-account-section">
                             <h3>Tài khoản của tôi</h3>
                                 <a>Hồ sơ</a> <br></br>
-                                <a>Đổi mật khẩu</a>
+                                <Link to={`/profile/changePassword`}> Đổi mật khẩu</Link>
                             </div>
                             <h3><a>Tour đã đăng ký</a></h3>
                         </div>
                     </Grid>
                     <Grid item xs={8}>
-                        <ProfileCard props = { user }></ProfileCard>
-                        {/* <ChangePasswordCard></ChangePasswordCard> */}
+                        <Routes>
+                        <Route path="" element={<ProfileCard props={user} />}></Route>
+                        <Route path="/changePassword" element={<ChangePasswordCard props={user}/>} />
+                        <Route path="/takenTour" element={<TakenTour />} />
+                        </Routes>
+                        
                         {/* <TakenTour></TakenTour> */}
                     </Grid>
                 </Grid>

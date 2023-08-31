@@ -30,7 +30,7 @@ urlpatterns = [
     path('tour/', include(('tour.urls','tour'), namespace='tour')),
     path('tour/user/', include('users.urls', namespace='users')),
     # API Token Management
-    path('tour/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    # path('tour/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('tour/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),

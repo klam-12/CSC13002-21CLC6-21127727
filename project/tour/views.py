@@ -73,24 +73,44 @@ def search_tour_view(request):
     order_price=request.GET.get('price', '')
 
     #get index of Location 
-    Locations=Location.objects.filter(location_name__icontains=order_end_location).all()
-    list_location=[]
-    for location in Locations:
-        list_location.append(location.id)
-   
-    print(list_location[0])
-    tours_startDates= Tour.objects.filter(end_location_Id_id=list_location[0]).all()
     list_tour_id=set()
-    print(tours_startDates)
+    if order_end_location != '':
+        Locations=Location.objects.filter(location_name__icontains=order_end_location).all()
+        list_location=[]
+        for location in Locations:
+            list_location.append(location.id)
+   
+        tours_startDates= Tour.objects.filter(end_location_Id_id=list_location[0]).all()
+        for tour in tours_startDates:
+          if tour.id not in list_tour_id:
+            list_tour_id.add(tour.id)
+    
+    
     if order_start_date != '':
         order_start_date_obj=datetime.strptime(order_start_date,'%Y-%m-%d').date()
-        start_date=TourStartDate.objects.filter(start_date=order_start_date_obj).all()
+        start_date=TourStartDate.objects.filter(start_date__gte=order_start_date_obj).all()
         for sd in start_date:
             if sd.tour_id not in list_tour_id:
                 list_tour_id.add(sd.tour_id.id)
-    for tour in tours_startDates:
-        if tour.id not in list_tour_id:
-            list_tour_id.add(tour.id)
+                
+    price_ranges = {
+        '0-1M': (0, 1000000),
+        '1M-3M': (1000000, 3000000),
+        '3M-5M': (3000000, 5000000),
+        '5M-10M': (5000000, 10000000),
+        '10M+': (10000000, float('inf'))
+    }
+    
+    if order_price != '' and order_price in price_ranges:
+        min_price, max_price = price_ranges[order_price]
+        price_filtered_tours = Tour.objects.filter(price__gte=min_price, price__lt=max_price).all()
+        # Locations=Location.objects.filter(location_name__icontains=order_price).all()
+        # list_location=[]
+        print(price_filtered_tours)
+        for price in price_filtered_tours:
+            if price.id not in list_tour_id:
+              list_tour_id.add(price.id)
+
     tours=Tour.objects.filter(id__in=list_tour_id).all()
     tour_data=SearchSerializer(tours,many=True)
     print(tour_data)

@@ -10,28 +10,52 @@ import SignUp from './pages/authentication/signUp';
 import Payment from './pages/payment/payment';
 import Profile from './pages/profile/profile';
 import SearchPage from './pages/searchPage/searchPage';
+import ChangePasswordCard from './pages/profile/sections/profileChangePassword';
 // import DetailTour from './pages/tour/detailTour';
 
 const App = () => {
-  
-  let storedUser = localStorage.getItem("user") !== undefined ? JSON.parse(localStorage.getItem("user")) : '';
-    // console.log(localStorage.getItem('user'))
-    // console.log(storedUser.username)
+  // localStorage.removeItem('access_token');
+  //               localStorage.removeItem('refresh_token');
+  //               localStorage.removeItem('user');
+  const access_token = localStorage.getItem('access_token');
+  if (access_token) {
+    try {
+      axiosInstance
+        .get(`/user/profile/`,
+        {
+          headers: {
+            Authorization: `Bearer ${access_token}`,
+          },
+        }
+        )
+        .then((profileRes) => {
+          const profileData = profileRes.data;
+          console.log(profileData);
+          localStorage.setItem('user', JSON.stringify(profileData));
+        })
+        .catch((profileError) => {
+          console.error('Error fetching profile:', profileError);
+        });
+      }
+      catch (error) {
+        console.error('Error handling response:', error);
+        
+      }  
+    }   
+  let storedUser = localStorage.getItem("user") !== undefined  && localStorage.getItem("user") !== '' ? JSON.parse(localStorage.getItem("user")) : '';
   const [loggedInUser, setLoggedInUser] = useState(storedUser ? storedUser : '');
-    const handleLogin = (user) => {
-        setLoggedInUser(user);
-    };
+  console.log(loggedInUser)
 
-    const handleLogout = () => {
-        localStorage.removeItem('access_token');
-        setLoggedInUser(null);
-    };
+
+  const handleLogin = (user) => {
+      setLoggedInUser(user);
+  };
+
 
   useEffect(() => {
 		axiosInstance.get().then((res) => {
 		});
 	}, []);
-  console.log(loggedInUser)
 	return (
 		<React.StrictMode>
       <Routes>
@@ -39,9 +63,10 @@ const App = () => {
         <Route path="/search/:tour_name" element={<DetailTour/>}/>
 				<Route path="/register" element={<SignUp onRegister={handleLogin} />} />
 				<Route path="/signin" element={<SignIn onRegister={handleLogin} />} />
-				<Route path={`/profile/${loggedInUser.email}`} element={<Profile props = {loggedInUser}/>} />
+				<Route path={`/profile/*`} element={<Profile props = {loggedInUser}/>} />
         <Route path="/detail/:id" element={<DetailTour/>} />
         <Route path="/tour/search" element={<SearchPage/>} />
+        {/* <Route path={`/profile/${loggedInUser.email}/changePassword`} element={<ChangePasswordCard />} /> */}
 			</Routes>
     </React.StrictMode> 
 	);
