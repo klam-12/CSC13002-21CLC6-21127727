@@ -9,6 +9,7 @@ import Payment from './pages/payment/payment';
 import Profile from './pages/profile/profile';
 import SearchPage from './pages/searchPage/searchPage';
 import DetailTour from './pages/tour/detailTour';
+import ToursTakenList from './pages/tour/sections/toursTakenList';
 
 function App() {
   return (
@@ -27,11 +28,15 @@ function App() {
       {/*  */}
       {/*  */}
       {/* <Profile></Profile> */}
+      
+
+      {/* <ToursTakenList></ToursTakenList> */}
+
       <Routes>
         <Route path="/" element={<HomePage></HomePage>}></Route>
         <Route path="/signup" element={<SignUp></SignUp>}></Route>
         <Route path="/signin" element={<SignIn></SignIn>}></Route>
-        <Route path="/test" element={<DetailTour></DetailTour>}></Route>
+        <Route path="/test" element={<SearchPage></SearchPage>}></Route>
         <Route path="/profile" element={<Profile></Profile>}></Route>
       </Routes>
     </div>

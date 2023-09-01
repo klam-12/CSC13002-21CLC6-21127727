@@ -63,6 +63,7 @@
 .sign-up-submit:hover {
   box-shadow: 0 8px 16px 0 rgba(93, 156, 89, 0.40);
   background-color: rgba(93, 156, 89, 0.9);
+  cursor: pointer;
 }
 .sign-in-submit{
   width: 100%;
@@ -80,6 +81,7 @@
 .sign-in-submit:hover {
   box-shadow: 0 8px 16px 0 rgba(93, 156, 89, 0.40);
   background-color: rgba(93, 156, 89, 0.9);
+  cursor: pointer;
 }
 .sign-in-link{
   color: #F00;
@@ -117,6 +119,7 @@
 }
 .fb-gg-button:hover {
   background-color: #F4F4F4;
+  cursor: pointer;
 }
 .fb-gg-button img{
   display: inline;

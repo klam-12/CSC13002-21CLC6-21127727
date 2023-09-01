@@ -36,7 +36,7 @@ const NavBar = () => {
         <nav className="navbar-items">
             <div className="container">
                 <div className="logo">
-                    <HashLink smooth to="/#header">Travelus</HashLink>
+                    <HashLink smooth to="/"  onClick={() => {window.scrollTo({top: 0, left: 0, behavior: 'smooth'});}}>Travelus</HashLink>
                 </div>
                     <ul className="item-list">
                     <li className="item">

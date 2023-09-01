@@ -11,12 +11,12 @@ const ChangePasswordCard = () => {
 
             <div className="profile-card-info-container" style={{marginTop: '35px', marginBottom: '35px'}}>
               <label className="profile-label" for="profile-old-password">Mật khẩu cũ</label>
-                <input className="profile-card-info" type="text" id="profile-old-password" name="profile-old-password" value="manhmanhmanh123" readonly></input> <br></br>
+                <input className="profile-card-info" type="text" id="profile-old-password" name="profile-old-password" value="manhmanhmanh123" onfocus="this.blur()" readonly="readonly"></input> <br></br>
             </div>
 
             <div className="profile-card-info-container">
               <label className="profile-label" for="profile-new-password">Mật khẩu mới</label>
-              <input className="profile-card-info" type="text" id="profile-new-password" name="profile-new-password" value="Trần Minh Anh" readonly></input> <br></br>
+              <input className="profile-card-info" type="text" id="profile-new-password" name="profile-new-password" value="Trần Minh Anh" onfocus="this.blur()" readonly="readonly"></input> <br></br>
             </div>
         </form>
       </div>

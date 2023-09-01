@@ -15,11 +15,10 @@ const SignUpCard = () => {
             <input className="authentication-info" type="email" id="email" name="email" placeholder="Email"></input> <br></br>
             <input className="authentication-info" type="password" id="password" name="password" placeholder="Mật khẩu"></input> <br></br>
             <input className="authentication-info" type="tel" id="phone" name="phone" placeholder="Số điện thoại"></input> <br></br>
-            <input className="authentication-info" type="date" id="dob" name="dob" placeholder="Ngày sinh"></input> <br></br>
-            <select className="authentication-info" name="gender" id="gender">
+            <input className="authentication-info" type="date" id="dob" name="dob" placeholder="Ngày sinh" style={{cursor: 'text'}}></input> <br></br>
+            <select className="authentication-info" name="gender" id="gender" style={{cursor: 'text'}}>
                 <option value="male">Nam</option>
                 <option value="female">Nữ</option>
-                <option value="other">Khác</option>
             </select>
             <input className="authentication-info" type="text" id="address" name="address" placeholder="Địa chỉ nhà"></input> <br></br>
             <input className="sign-up-submit" type="submit" value="Đăng ký"></input> <br></br>
