@@ -3,6 +3,7 @@ import './searchBar.css';
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import axiosInstance from '../../axios';
 
 const SearchBar = () => {
   const navigate = useNavigate();
@@ -26,8 +27,8 @@ const SearchBar = () => {
     try {
         if (!(formData.price =='' && formData.search_date == '' && formData.search_location ==''))
             {
-                const apiUrl = `http://127.0.0.1:8000/tour/search?end_location=${search_location}&start_date=${search_date}&price=${price}`;
-                const response = await axios.get(apiUrl);
+                const apiUrl = `/search?end_location=${search_location}&start_date=${search_date}&price=${price}`;
+                const response = await axiosInstance.get(apiUrl);
                 navigate(`/tour/search?end_location=${search_location}&start_date=${search_date}&price=${price}`);
                 console.log(response.data);
                 window.location.reload();}

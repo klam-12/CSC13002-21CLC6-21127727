@@ -1,13 +1,13 @@
-import Button from "../button/button";
+import Button from "../button/button.css";
 import warning from '../../assets/icons/triangle-exclamation-solid.svg'
 import './notification.css'
 import React from 'react';
-const WarningNotification = () => {
+const WarningNotification = ({onClose}) => {
     return (
         <div className="notification">
             <img src={warning} alt="warning"></img>
-            <h4>Đã có lỗi xảy ra</h4>
-            <Button content="OK"></Button>
+            <h4>Bạn cần phải đăng nhập</h4>
+            <button onClick={onClose} className="button">OK</button>
         </div>
     );
 };

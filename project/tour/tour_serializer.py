@@ -106,7 +106,11 @@ class DetailTourSerializer(serializers.ModelSerializer):
     schedules=obj.schedule_tourid.all()
     result=[]
     for schedule in schedules:
-      result.append({"Heading":schedule.heading,"Activity":schedule.activity})
+        result.append({
+            "Heading": schedule.heading,
+            "Activity": schedule.activity,
+            "Image": schedule.picture.url if schedule.picture else None  # Lấy đường dẫn URL của hình ảnh nếu có
+        })
     return result
   
   
@@ -129,7 +133,6 @@ class listCustomerSerializer(serializers.ModelSerializer):
     return 1
   
 class BookingTourSerializer(serializers.ModelSerializer):
-  #ten tour, ma tour, thoi gian, huong dan vien, gia , end_location, to_location
   name_tour=serializers.SerializerMethodField()
   price=serializers.SerializerMethodField()
   from_location=serializers.SerializerMethodField()

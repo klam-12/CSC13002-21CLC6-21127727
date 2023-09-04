@@ -24,7 +24,7 @@ const location = useLocation();
     const price = queryParams.get('price');
     const apiUrl = `http://127.0.0.1:8000/tour/search?end_location=${end_location}&start_date=${start_date}&price=${price}`;
     
-  axios
+  axiosInstance
   .get(apiUrl)
   .then((res) => {
     const allPosts = res.data;

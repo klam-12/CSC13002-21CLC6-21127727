@@ -6,10 +6,11 @@ import { Rating } from '@mui/material';
 
 const TourCard = (props) => {
   const post  = props.props;
+  const imageUrl =  `http://127.0.0.1:8000${post.main_picture}`;
     const [value, setValue] = React.useState(5);
     return (
         <div className="tour-card">
-            <img src={test} alt="Avatar" style={{width:'100%'}}/>
+            <img src={imageUrl} alt="Avatar" style={{width:'100%'}}/>
         <div className="tour-card-container">
           <h4 className="tour-card-name"><b> {post.from_location} - {post.to_location}</b></h4>
           <Rating name="read-only" value={post.avg_star} readOnly />

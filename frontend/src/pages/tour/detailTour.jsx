@@ -10,13 +10,12 @@ import axiosInstance from '../../axios';
 import { useParams } from 'react-router-dom';
 
 const DetailTour = () => {
-    const { id } = useParams(); // Lấy tham số id từ URL
-    console.log(id); // In ra giá trị của id
+    const {id } = useParams(); // Lấy tham số id từ URL
 
     const [post, setPost] = useState(null);
 
     useEffect(() => {
-    axios.get(`http://127.0.0.1:8000/tour/detail/${id}`).then((res) => {
+        axiosInstance.get(`/detail/${id}/`).then((res) => {
         console.log(id); // In ra giá trị của id
         setPost(res.data); 
         // console.log(res.data); // In ra dữ liệu tour từ API
@@ -25,17 +24,18 @@ const DetailTour = () => {
     console.error('Error fetching data:', error);
   });
     }, [id, setPost]); 
-    // Thêm id vào dependency array để useEffect re-run khi id thay đổi
-
-    // console.log(post);x // In ra giá trị của post state sau khi được cập nhật
+    
+    
     if (!post) {
         return <div>Loading...</div>;
-      }
-    // console.log(post.tour_name)
+        
+    }
+    console.log()
+    
     return (
         <div>
             <NavBar></NavBar>
-            <TourHeroBanner></TourHeroBanner>
+            <TourHeroBanner image = {post[0].main_picture}></TourHeroBanner>
             <TourInfo props = { post } ></TourInfo>
             <TourFeedBack></TourFeedBack>
             <Footer></Footer>

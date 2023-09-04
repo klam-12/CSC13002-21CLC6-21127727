@@ -24,7 +24,8 @@ const SearchTours = ({props}) => {
 
               <div className="search-tour-card">
                 <div className="search-tour-image">
-                  <img src={test} alt="test image" />
+                <img src={`http://127.0.0.1:8000${post.main_picture}`} alt="test image" />
+
                 </div>
                 <div className="search-tour-info">
                   <h4 className="search-tour-name">

@@ -8,25 +8,22 @@ import avatar from '../../assets/icons/avatar.jpg'
 import './profile.css'
 import ChangePasswordCard from "./sections/profileChangePassword";
 import TakenTour from "./sections/profileTakenTour";
-import image  from '/Users/user/CSC13002-21CLC6-21127727/frontend/src/avt.png'
+// import image  from '/Users/user/CSC13002-21CLC6-21127727/frontend/src/avt.png'
 // import { Link } from 'react-router-dom';
 import { Routes, useLocation } from 'react-router-dom';
-import { Route, Switch, Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 const Profile = (props) => {
     const [userData, setUserData] = useState(null);
     const user  = props.props;
     console.log(user)
-    const imageUrl = user.avatar ? `http://localhost:3000${user.avatar}` : `https://social.salework.net/images/default-avatar.jpg`;
+    const imageUrl = user.avatar ? `http://127.0.0.1:8000${user.avatar}` : `https://social.salework.net/images/default-avatar.jpg`;
     const location = useLocation();
     console.log(location.pathname)
     
     return (
+        
         <div>
-            {/* <Routes>
-                <Route path="/profile/changePassword" element={<ChangePasswordCard/>} />
-                <Route path="/profile/takenTour" component={TakenTour} />
-                <Route path="/profile" render={() => <ProfileCard props={user} />} />
-            </Routes> */}
+            
             <NavBar></NavBar>
             <div className="profile-section">
                 <Grid container spacing={4}>

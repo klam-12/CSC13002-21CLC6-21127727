@@ -6,26 +6,22 @@ from .serializers import CustomUserSerializer,ChangePasswordSerializer
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.permissions import AllowAny,IsAuthenticated
 from rest_framework.authtoken.models import Token
-from django.contrib.auth import authenticate
 from rest_framework.decorators import api_view,permission_classes
 from .models import NewUser
-from django.contrib.auth import authenticate, login, logout
-from django.views.decorators.csrf import csrf_exempt
-from django.middleware.csrf import get_token
-from django.views.decorators.csrf import ensure_csrf_cookie
-# import jwt
-# from django.http import JsonResponse
-# from datetime import datetime, timedelta
 from django.contrib.auth import update_session_auth_hash
+# from .serializers import CustomTokenObtainPairSerializer,NewUserSerializer
+
 class RegisterView(TokenObtainPairView):
     permission_classes = [AllowAny]
-    def post(self, request):
-        print(request.data)
+
+    def post(self, request, format='json'):
         serializer = CustomUserSerializer(data=request.data)
+        print(request.data)
         if serializer.is_valid():
             user = serializer.save()
-            # token, created = Token.objects.get_or_create(user=user)
-            return Response({"user": serializer.data, "token": token.key}, status=status.HTTP_201_CREATED)
+            if user:
+                json = serializer.data
+                return Response(json, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class ProfileView(APIView):
@@ -45,7 +41,10 @@ class ProfileView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class LogoutView(APIView):
+    # permission_classes = [AllowAny]
     permission_classes = [AllowAny]
+    authentication_classes = ()
+
     def post(self, request):
         print(request.data)
         try:

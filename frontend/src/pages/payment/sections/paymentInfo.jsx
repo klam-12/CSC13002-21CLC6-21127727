@@ -2,8 +2,10 @@ import React from 'react';
 import { Grid } from '@mui/material';
 import '../payment.css'
 
-const PaymentInfo = () => {
-    const name = "Tran Minh Anh"
+const PaymentInfo = ({inf}) => {
+    console.log(inf)
+    const user = inf['user_data'][0]
+    const tour = inf['tour_data'][0]
     return (
     <div>
         <section className="payment-info-section">
@@ -17,9 +19,9 @@ const PaymentInfo = () => {
                         <p>Email:</p>                  
                     </Grid>
                     <Grid item xs={9}>
-                        <p>Trần Minh Anh</p>  
-                        <p>0909123456</p>    
-                        <p>tranminhanh1912@gmail.com</p> 
+                        <p>{user['full_name']}</p>  
+                        <p>{user['phone']}</p>    
+                        <p>{user['email']}</p> 
                     </Grid>
                 </Grid>
             </div>
@@ -35,11 +37,11 @@ const PaymentInfo = () => {
                         <p>Số lượng:</p>                  
                     </Grid>
                     <Grid item xs={9}>
-                        <p>DU LỊCH HÀ NỘI - DU THUYỀN HẠ LONG 5* - NÚI THỦNG - QUẢNG YÊN</p>  
-                        <p>STN084-2023-01311</p>    
-                        <p>23/10/2023 - 30/10/2023</p> 
-                        <p>Nguyễn Văn A</p>
-                        <p>135B Trần Hưng Đạo, phường Cầu Ông Lãnh, quận 1, TP HCM</p>
+                        <p>{tour['name_tour']}</p>  
+                        <p>{tour['tour_id']}</p>    
+                        <p>{tour['start_date']}</p> 
+                        <p>{tour['guide']}</p>
+                        <p>{tour['from_location']}</p>
                         <p>1</p>
                     </Grid>
                 </Grid>
@@ -47,7 +49,7 @@ const PaymentInfo = () => {
                 </div>
                 <div className="payment-price">
                     <p className="total-price-title">Tổng tiền</p>
-                    <p className="total-price">5.000.000 VND</p>
+                    <p className="total-price">{tour['price']} VND</p>
                 </div>    
         </section>
     </div>

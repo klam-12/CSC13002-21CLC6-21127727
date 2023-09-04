@@ -12,7 +12,7 @@ import Profile from './pages/profile/profile';
 import SearchPage from './pages/searchPage/searchPage';
 import ChangePasswordCard from './pages/profile/sections/profileChangePassword';
 // import DetailTour from './pages/tour/detailTour';
-
+import Logout from './pages/authentication/logout';
 const App = () => {
   // localStorage.removeItem('access_token');
   //               localStorage.removeItem('refresh_token');
@@ -41,10 +41,20 @@ const App = () => {
         console.error('Error handling response:', error);
         
       }  
-    }   
+    if (!localStorage.getItem('user')){
+      window.location.reload()
+    }
+    }
+    else{
+      localStorage.removeItem('access_token');
+      localStorage.removeItem('refresh_token');
+      localStorage.removeItem('user');
+      // window.location.reload();
+    } 
+
   let storedUser = localStorage.getItem("user") !== undefined  && localStorage.getItem("user") !== '' ? JSON.parse(localStorage.getItem("user")) : '';
   const [loggedInUser, setLoggedInUser] = useState(storedUser ? storedUser : '');
-  console.log(loggedInUser)
+
 
 
   const handleLogin = (user) => {
@@ -64,8 +74,11 @@ const App = () => {
 				<Route path="/register" element={<SignUp onRegister={handleLogin} />} />
 				<Route path="/signin" element={<SignIn onRegister={handleLogin} />} />
 				<Route path={`/profile/*`} element={<Profile props = {loggedInUser}/>} />
-        <Route path="/detail/:id" element={<DetailTour/>} />
+        <Route path="/logout" element={<Logout/>} />
+        <Route path="/detail/:id/*" element={<DetailTour/>} />
+        {/* <Route path="/detail/:id/payment" element={<Payment/>} /> */}
         <Route path="/tour/search" element={<SearchPage/>} />
+        <Route path="/detail/:id/payment" element={<Payment/>} />
         {/* <Route path={`/profile/${loggedInUser.email}/changePassword`} element={<ChangePasswordCard />} /> */}
 			</Routes>
     </React.StrictMode> 

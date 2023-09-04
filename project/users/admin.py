@@ -8,8 +8,8 @@ from django.db import models
 
 class UserAdminConfig(UserAdmin):
     model = NewUser
-    search_fields = ('email', 'username', 'full_name',)
-    list_filter = ('email', 'username', 'full_name', 'is_active', 'is_staff','avatar')
+    search_fields = ('email','full_name',)
+    list_filter = ('email', 'full_name', 'is_active', 'is_staff','avatar')
     ordering = ('-start_date',)
     list_display = ('email',  'full_name',
                     'is_active', 'is_staff')
@@ -29,4 +29,4 @@ class UserAdminConfig(UserAdmin):
     )
 
 
-admin.site.register(NewUser,UserAdminConfig)
+admin.site.register(NewUser)
