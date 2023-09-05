@@ -9,7 +9,6 @@ import test from '../../../assets/images/test.jpg'
 
 import TourCardButton from '../../components/tourCardButton';
 import { Rating } from '@mui/material';
-import { Link } from 'react-router-dom';
 
 const SearchTours = ({props}) => {
     const posts = props;

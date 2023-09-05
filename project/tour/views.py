@@ -80,11 +80,11 @@ def search_tour_view(request):
         list_location=[]
         for location in Locations:
             list_location.append(location.id)
-   
-        tours_startDates= Tour.objects.filter(end_location_Id_id=list_location[0]).all()
-        for tour in tours_startDates:
-          if tour.id not in list_tour_id:
-            list_tour_id.add(tour.id)
+        if list_location != []:
+            tours_startDates= Tour.objects.filter(end_location_Id_id=list_location[0]).all()
+            for tour in tours_startDates:
+                if tour.id not in list_tour_id:
+                    list_tour_id.add(tour.id)
     
     
     if order_start_date != '':
@@ -151,7 +151,7 @@ def booking_view( request,id):# id startdate, id user
         order_id_start_date=request.GET.get('id_start_date')
         order_id_user=request.GET.get('id_user')
         
-        
+        print(order_id_start_date)
         tourstartdate=TourStartDate.objects.filter(start_date=order_id_start_date)
         
         
@@ -164,15 +164,24 @@ def booking_view( request,id):# id startdate, id user
             'user_data':data2.data,
         }
         return Response(merge,status=status.HTTP_200_OK)
-    elif request.method=='POST':
-        # data={
-        #     'acc_id':request.GET.get('id_user'),
-        #     'tour_startdate_id':request.GET.get('id_start_date'),
-        #     'star': None
-        # }
+    elif request.method =='POST':
+        print("post")
+        
+        
         data = request.data
-        print(request.data)
-        serializer = PostBookingSerializer(data=data)
+        # order_id_start_date=request.data('id_start_date')
+        # order_id_user=request.data('id_user')
+        tour_startdate_id=TourStartDate.objects.filter(start_date=data['id_start_date'])
+        id_user = NewUser.objects.filter(email=data['id_user'])
+        print(tour_startdate_id)
+        data_send={
+            'acc_id':id_user,
+            'tour_startdate_id': tour_startdate_id,
+            'star': None
+        }
+        # print(data)
+        # print(data['id_start_date'])
+        serializer = PostBookingSerializer(data=data_send)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)

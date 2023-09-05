@@ -1,7 +1,7 @@
 import Avatar from '../../../components/avatar/avatar';
 import avatar from '../../../assets/icons/avatar.jpg'
 import './tourStyles.css'
-
+import React from 'react';
 var customers = ["Truong Tran Phuong Khanh","Nguyen Thi Khanh Lam", "Nguyen Thi Ngoc Tram", "Nguyen Phuc Thinh", "Nguyen Anh Hoang", "Tran Minh Anh","Truong Tran Phuong Khanh","Nguyen Thi Khanh Lam", "Nguyen Thi Ngoc Tram", "Nguyen Phuc Thinh", "Nguyen Anh Hoang", "Tran Minh Anh"]
 
 const toursTakenCustomer = (customers) =>{
