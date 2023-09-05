@@ -29,7 +29,12 @@
     border-radius: 10px;
     border: 1px solid #FFF;
 }
-
+.search-bar-item:hover{
+    cursor: text;
+}
+.search-bar-item option:hover {
+    cursor: text;
+}
 .search-bar-item::placeholder{
     color: #FFF;
 }

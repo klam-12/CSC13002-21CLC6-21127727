@@ -106,9 +106,8 @@ const NavBar = () => {
             <div>
         <nav className="navbarItems">
             <div className="container">
-            <div className="logo">
-                
-                    <HashLink smooth to="/tour">Travelus</HashLink>
+                <div className="logo">
+                    <HashLink smooth to="/tour"  onClick={() => {window.scrollTo({top: 0, left: 0, behavior: 'smooth'});}}>Travelus</HashLink>
                 </div>
                     <ul className="item-list">
                     <li className="item">

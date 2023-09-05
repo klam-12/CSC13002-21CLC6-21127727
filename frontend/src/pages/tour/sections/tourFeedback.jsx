@@ -20,7 +20,7 @@ const TourFeedBack = () => {
             <form className="authentication-form">
                 <div className="tour-feed-back-input">
                 <Avatar image={avatar}/>
-                <input className="comment-bar" type="text" id="comment" name="comment" placeholder="Suy nghĩ của bạn về chuyến đi này"></input> <br></br>
+                <input className="comment-bar" type="text" id="comment" name="comment" placeholder="Suy nghĩ của bạn về chuyến đi này" ></input> <br></br>
                 <Rating name="simple-controlled"
                         value={value}
                         onChange={(event, newValue) => {
@@ -31,25 +31,25 @@ const TourFeedBack = () => {
 
                 <div className="tour-feed-back">
                 <Avatar image={avatar}/>
-                <input className="comment-bar" type="text" id="comment1" name="comment1" value="Chuyến đi rất tuyệt!" readonly></input> <br></br>
+                <input className="comment-bar" type="text" id="comment1" name="comment1" value="Chuyến đi rất tuyệt!" onfocus="this.blur()" readonly="readonly"></input> <br></br>
                 <Rating name="read-only" value={value1} readOnly />
                 </div>
 
                 <div className="tour-feed-back">
                 <Avatar image={avatar}/>
-                <input className="comment-bar" type="text" id="comment2" name="comment2" value="Chuyến đi rất tuyệt!" readonly></input> <br></br>
+                <input className="comment-bar" type="text" id="comment2" name="comment2" value="Chuyến đi rất tuyệt!" onfocus="this.blur()" readonly="readonly"></input> <br></br>
                 <Rating name="read-only" value={value2} readOnly />
                 </div>
 
                 <div className="tour-feed-back">
                 <Avatar image={avatar}/>
-                <input className="comment-bar" type="text" id="comment3" name="comment3" value="Chuyến đi rất tuyệt!" readonly></input> <br></br>
+                <input className="comment-bar" type="text" id="comment3" name="comment3" value="Chuyến đi rất tuyệt!" onfocus="this.blur()" readonly="readonly"></input> <br></br>
                 <Rating name="read-only" value={value3} readOnly />
                 </div>
 
                 <div className="tour-feed-back">
                 <Avatar image={avatar}/>
-                <input className="comment-bar" type="text" id="comment4" name="comment4" value="Chuyến đi rất tuyệt!" readonly></input> <br></br> 
+                <input className="comment-bar" type="text" id="comment4" name="comment4" value="Chuyến đi rất tuyệt!" onfocus="this.blur()" readonly="readonly"></input> <br></br> 
                 <Rating name="read-only" value={value4} readOnly />
                 </div>
             </form>

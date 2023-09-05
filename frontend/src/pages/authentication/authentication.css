@@ -63,6 +63,7 @@
 .sign-up-submit:hover {
   box-shadow: 0 8px 16px 0 rgba(93, 156, 89, 0.40);
   background-color: rgba(93, 156, 89, 0.9);
+  cursor: pointer;
 }
 .sign-in-submit{
   width: 100%;
@@ -80,14 +81,23 @@
 .sign-in-submit:hover {
   box-shadow: 0 8px 16px 0 rgba(93, 156, 89, 0.40);
   background-color: rgba(93, 156, 89, 0.9);
+  cursor: pointer;
 }
 .sign-in-link{
   color: #F00;
+  text-decoration: none;
   font-weight: bold;
 }
 .sign-up-link{
   color: #F00;
+  text-decoration: none;
   font-weight: bold;
+}
+.sign-up-link:hover{
+  opacity: 50%;
+}
+.sign-in-link:hover{
+  opacity: 50%;
 }
 .forgot-password{
   color: var(--foundation-grey-grey-700, #868686);
@@ -97,11 +107,11 @@
 }
 .fb-gg-button{
   display: inline;
-  padding: 10px;
-  margin: 0px 10px;
+  padding: 10px 20px;
   justify-content: center;
   align-items: center;
   font-weight: 600;
+  width: 100%;
   border-radius: 5px;
   border: 1px solid var(--foundation-grey-grey-500, #BDBDBD);
   color: #3E3E3E;
@@ -109,6 +119,13 @@
 }
 .fb-gg-button:hover {
   background-color: #F4F4F4;
+  cursor: pointer;
+}
+.fb-gg-button img{
+  display: inline;
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
 }
 .authentication-warning{
   color: #F00; 

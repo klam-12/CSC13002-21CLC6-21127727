@@ -5,6 +5,11 @@ import axiosInstance from '../../../axios';
 import {Redirect} from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+import { Grid } from '@mui/material';
+import '../authentication.css'
+import gg from '../../../assets/icons/gg.svg'
+import fb from '../../../assets/icons/fb.svg'
 
 const SignInCard = () => {
     const navigate = useNavigate();
@@ -74,9 +79,16 @@ const SignInCard = () => {
 						{error && <p style={{ color: 'red' }}>{error}</p>}
             <input className="sign-in-submit" type="submit" value="Đăng ký" onClick={handleSubmit}></input>
             <p className="forgot-password"><a>Quên mật khẩu</a></p>
-            <FacebookGoogleButton content="Facebook"></FacebookGoogleButton>
-            <FacebookGoogleButton content="Google"></FacebookGoogleButton>
-            <p>Bạn mới đến Travelus? <a className="sign-up-link">Đăng ký</a></p>
+            <br></br>
+            <Grid container spacing={2}>
+                <Grid item xs={6}>
+                    <FacebookGoogleButton src={fb} content="Facebook"></FacebookGoogleButton>
+                </Grid>
+                <Grid item xs={6}>
+                    <FacebookGoogleButton src={gg} content="Google"></FacebookGoogleButton>
+                </Grid>
+            </Grid>
+            <p>Bạn mới đến Travelus? <Link to="/signup" relative="path" className="sign-up-link">Đăng ký</Link></p>
         </form>
     </div>
     );

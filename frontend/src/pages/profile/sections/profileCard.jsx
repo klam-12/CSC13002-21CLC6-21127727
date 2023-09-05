@@ -24,27 +24,27 @@ const ProfileCard = (props) => {
 
             <div className="profile-card-info-container">
               <label className="profile-label" for="profile-email">Email</label>
-              <input className="profile-card-info" type="text" id="profile-email" name="profile-email" value={user.email} readonly></input> <br></br>
+              <input className="profile-card-info" type="text" id="profile-email" name="profile-email" value={user.email} onfocus="this.blur()" readonly="readonly"></input> <br></br>
             </div>
             
             <div className="profile-card-info-container">
               <label className="profile-label" for="profile-phone">Số điện thoại</label>
-              <input className="profile-card-info" type="text" id="profile-phone" name="profile-phone" value={user.phone}readonly></input> <br></br>
+              <input className="profile-card-info" type="text" id="profile-phone" name="profile-phone" value={user.phone} onfocus="this.blur()" readonly="readonly"></input> <br></br>
             </div>
             
             <div className="profile-card-info-container">
               <label className="profile-label" for="profile-dob">Ngày sinh</label>
-              <input className="profile-card-info" type="text" id="profile-dob" name="profile-dob" value={user.birth_date} readonly></input> <br></br>
+              <input className="profile-card-info" type="text" id="profile-dob" name="profile-dob" value={user.birth_date} onfocus="this.blur()" readonly="readonly"></input> <br></br>
             </div>
             
             <div className="profile-card-info-container">
               <label className="profile-label" for="profile-gender">Giới tính</label>
-              <input className="profile-card-info" type="text" id="profile-gender" name="profile-gender" value={user.gender} readonly></input> <br></br>
+              <input className="profile-card-info" type="text" id="profile-gender" name="profile-gender" value={user.gender} onfocus="this.blur()" readonly="readonly"></input> <br></br>
             </div>
 
             <div className="profile-card-info-container">
               <label className="profile-label" for="profile-address">Địa chỉ</label>
-              <input className="profile-card-info" type="text" id="profile-address" name="profile-address" value={user.address} readonly></input> <br></br>
+              <input className="profile-card-info" type="text" id="profile-address" name="profile-address" value={user.address} onfocus="this.blur()" readonly="readonly"></input> <br></br>
             </div>
         </form>
       </div>

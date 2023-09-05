@@ -61,6 +61,7 @@
 .profile-change-button:hover {
     box-shadow: 0 8px 16px 0 rgba(93, 156, 89, 0.40);
     background-color: rgba(93, 156, 89, 0.9);
+    cursor: pointer;
   }
 .profile-card{
     padding: 20px;
@@ -82,6 +83,7 @@
     border-radius: 5px;
     border: 1px solid var(--primary-color, #5D9C59);
     background: var(--foundation-white-white-50, #FDFDFD);
+    cursor: pointer;
   }
   .taken-tour{
     padding: 0;

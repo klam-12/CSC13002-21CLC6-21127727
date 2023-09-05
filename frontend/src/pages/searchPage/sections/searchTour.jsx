@@ -1,5 +1,7 @@
 import React from 'react';
 // import SearchTourCard from "../../components/searchTourCard";
+import SearchTourCard from "../../components/searchTourCard";
+import { Link } from "react-router-dom";
 import '../searchPage.css'
 // import './searchTourCard.css'
 import '../../components/searchTourCard'

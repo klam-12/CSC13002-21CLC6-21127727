@@ -11,8 +11,10 @@ import Payment from './pages/payment/payment';
 import Profile from './pages/profile/profile';
 import SearchPage from './pages/searchPage/searchPage';
 import ChangePasswordCard from './pages/profile/sections/profileChangePassword';
-// import DetailTour from './pages/tour/detailTour';
 import Logout from './pages/authentication/logout';
+
+import DetailTour from './pages/tour/detailTour';
+import ToursTakenList from './pages/tour/sections/toursTakenList';
 const App = () => {
   // localStorage.removeItem('access_token');
   //               localStorage.removeItem('refresh_token');
