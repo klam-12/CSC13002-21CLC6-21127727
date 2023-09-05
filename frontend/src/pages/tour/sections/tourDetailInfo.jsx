@@ -7,11 +7,16 @@ import { Link, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import WarningNotification from '../../../components/notification/warningNoti';
 const split = (content) =>{
-    const paragrahs = content.split('\\n')
+    const paragrahs = content.split('\n')
+    console.log(paragrahs)
     return (
         
             paragrahs.map((index,paragrah) =>(
-                <p>{index}</p>
+                
+                    <p>{index} <br>
+                    </br> </p>
+               
+            
             ))
         
     )
