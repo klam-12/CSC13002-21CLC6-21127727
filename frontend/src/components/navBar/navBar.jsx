@@ -8,9 +8,9 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../../axios';
+// import handleLogout
 
-
-const useImageUrl = (loggedInUser) => {
+const UseImageUrl = (loggedInUser) => {
     const [imageUrl, setImageUrl] = useState('');
   
     useEffect(() => {
@@ -30,7 +30,7 @@ const NavBar = () => {
     const navigate = useNavigate();
     let storedUser = localStorage.getItem("user") !== undefined ? JSON.parse(localStorage.getItem("user")) : null;
     const [loggedInUser, setLoggedInUser] = useState(storedUser ? storedUser : null);
-    const handleLogout = async () => {
+    const HandleLogout = async (e) => {
         const refresh_token = localStorage.getItem('refresh_token');
         console.log(refresh_token)
         // try {
@@ -84,7 +84,7 @@ const NavBar = () => {
     )
     const authLinks = ()=>
     {
-        const imageUrl = useImageUrl(loggedInUser);
+        const imageUrl = UseImageUrl(loggedInUser);
         console.log(loggedInUser.email)
     return (
         

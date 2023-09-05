@@ -18,10 +18,6 @@ const GENDER_CHOICES = [
 
 const SignUpCard = ({ onRegister }) => {
   const navigate = useNavigate();
-  const [formData, updateFormData] = useState(initialFormData);
-	const [errors, setErrors] = useState({});
-
-
   const initialFormData = Object.freeze({
     email: '',
     password: '',
@@ -33,6 +29,11 @@ const SignUpCard = ({ onRegister }) => {
     role: "USER",
     avatar: null,
   });
+  const [formData, updateFormData] = useState(initialFormData);
+	const [errors, setErrors] = useState({});
+
+
+ 
 
   const handleChange = (e) => {
     updateFormData({
