@@ -8,8 +8,6 @@ import avatar from '../../assets/icons/avatar.jpg'
 import './profile.css'
 import ChangePasswordCard from "./sections/profileChangePassword";
 import TakenTour from "./sections/profileTakenTour";
-// import image  from '/Users/user/CSC13002-21CLC6-21127727/frontend/src/avt.png'
-// import { Link } from 'react-router-dom';
 import { Routes, useLocation } from 'react-router-dom';
 import { Route, Link } from 'react-router-dom';
 const Profile = (props) => {
@@ -40,10 +38,12 @@ const Profile = (props) => {
                         <div className="profile-info-section">
                             <div className="my-account-section">
                             <h3>Tài khoản của tôi</h3>
-                                <a>Hồ sơ</a> <br></br>
-                                <Link to={`/profile/changePassword`}> Đổi mật khẩu</Link>
+                                <Link to={`/profile`} className="custom-link"> Hồ sơ</Link><br></br>
+                                <Link to={`/profile/changePassword`} className="custom-link"> Đổi mật khẩu</Link>
                             </div>
-                            <h3><a>Tour đã đăng ký</a></h3>
+                            <Link to={`/profile/takenTour`} className="custom-link">
+                            <h3>Tour đã đăng ký</h3>
+                            </Link>
                         </div>
                     </Grid>
                     <Grid item xs={8}>

@@ -6,21 +6,21 @@ import '../../../components/button/button.css';
 import { Link, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import WarningNotification from '../../../components/notification/warningNoti';
-const split = (content) =>{
-    const paragrahs = content.split('\n')
-    console.log(paragrahs)
+const split = (content) => {
+    const paragraphs = content.split('\\n');
+    console.log(paragraphs);
     return (
-        
-            paragrahs.map((index,paragrah) =>(
-                
-                    <p>{index} <br>
-                    </br> </p>
-               
-            
-            ))
-        
-    )
+        <div>
+            {paragraphs.map((paragraph, index) => (
+                <p key={index}>
+                    {paragraph}
+                    <br />
+                </p>
+            ))}
+        </div>
+    );
 }
+
 const TourDetailInfo = ({ post }) => {
     const storedUser = JSON.parse(localStorage.getItem("user")) 
     const {id } = useParams();
@@ -74,9 +74,9 @@ const TourDetailInfo = ({ post }) => {
                 <Grid item xs={3}>
                     <br></br>
                     <br></br>
-                    {/* <Link to={`/detail/${id}/payment?id_start_date=${post.start_date[0]}&id_user=${storedUser.email}`} state={{ data: post }}> */}
+                    
                     <button onClick={handleBooking} className="button">Đặt ngay</button>
-                    {showWarning && <WarningNotification  onClose={closeWarning} />}
+                    {showWarning && <WarningNotification content = 'Bạn cần phải đăng nhập' onClose={closeWarning} />}
                     {/* </Link> */}
                 </Grid>
             </Grid>

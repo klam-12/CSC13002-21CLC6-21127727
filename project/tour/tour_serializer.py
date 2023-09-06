@@ -88,7 +88,7 @@ class DetailTourSerializer(serializers.ModelSerializer):
   heading_activity_picture=serializers.SerializerMethodField()
   class Meta:
     model=Tour
-    fields =['tour_name','price','time','detail','from_location','to_location','main_picture','start_date','vehicle_name','heading_activity_picture']
+    fields =['id','tour_name','price','time','detail','from_location','to_location','main_picture','start_date','vehicle_name','heading_activity_picture']
   def get_from_location(self, obj):
     return obj.start_location_Id.location_name
   
@@ -171,4 +171,8 @@ class PostBookingSerializer(serializers.ModelSerializer):
     model=Register
     fields=['acc_id','tour_startdate_id','star']
 
-    
+
+# class ListTourOfUser(serializers.ModelSerializer):
+#   class Meta:
+#     model = Register
+#     fields=['acc_id','tour_startdate_id','star']

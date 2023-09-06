@@ -10,11 +10,21 @@ from rest_framework.parsers import JSONParser
 from .tour_serializer import *
 from rest_framework import generics
 from rest_framework.decorators import api_view
-# Create your views here.
+
 from  app.serializer import *
 from django.db.models import Avg
 from datetime import datetime
-    
+from rest_framework.decorators import api_view, authentication_classes, permission_classes
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
+
+
+from django.db.models import Count, F
+from django.db.models.functions import TruncMonth
+import datetime
+from django.utils import timezone
+from django.db.models.functions import ExtractMonth
+
 class TourStartDateView(APIView):
     def get(self,request):
         tourstar =TourStartDate.objects.all()
@@ -145,8 +155,32 @@ def listCustomer_view(request, tour_startdate_id):
     return Response(data=custommer_data.data,status=status.HTTP_200_OK)
 
 
+import json
+@api_view(['GET'])
+def list_tour_of_user(request):
+    id_user = request.user
+    bookings=Register.objects.filter(acc_id_id=id_user).all()
+    
+    tour = []
+    for item in bookings:
+        tour_startdate = item.tour_startdate_id_id
+        print(tour_startdate)
+        tourStartDate = TourStartDate.objects.filter(id=tour_startdate).all()
+        print(tourStartDate)
+        Tours = Tour.objects.filter(id=tourStartDate[0].tour_id_id).all()
+        tour.append(Tours[0].id)
+        
+    
+    tour =set(tour)
+    print(tour)
+    tours=Tour.objects.filter(id__in=tour).all()
+    tour_data=DetailTourSerializer(tours,many=True)
+    return Response(data= tour_data.data,status=status.HTTP_200_OK)
+
+
 @api_view(['GET','POST'])
-def booking_view( request,id):# id startdate, id user
+@permission_classes([IsAuthenticated])
+def booking_view( request,id):
     if request.method=='GET':
         order_id_start_date=request.GET.get('id_start_date')
         order_id_user=request.GET.get('id_user')
@@ -165,28 +199,34 @@ def booking_view( request,id):# id startdate, id user
         }
         return Response(merge,status=status.HTTP_200_OK)
     elif request.method =='POST':
-        print("post")
-        
-        
         data = request.data
-        # order_id_start_date=request.data('id_start_date')
-        # order_id_user=request.data('id_user')
-        tour_startdate_id=TourStartDate.objects.filter(start_date=data['id_start_date'])
+        print(data)
+        print((data['id_start_date']))
+        order_id_start_date=request.data['id_start_date']
+        order_id_user=request.data['id_user']
+        order_id_tour=request.data['id_tour']
+        tour_startdate_id=TourStartDate.objects.filter(start_date=order_id_start_date, tour_id_id = order_id_tour)
         id_user = NewUser.objects.filter(email=data['id_user'])
-        print(tour_startdate_id)
+        print(tour_startdate_id[0].id)
         data_send={
-            'acc_id':id_user,
-            'tour_startdate_id': tour_startdate_id,
+            'acc_id':id_user[0].id,
+            'tour_startdate_id': tour_startdate_id[0].id,
             'star': None
         }
-        # print(data)
-        # print(data['id_start_date'])
+        print(data_send)
         serializer = PostBookingSerializer(data=data_send)
         if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+            existing_instance = Register.objects.filter(acc_id=data_send['acc_id'], tour_startdate_id=data_send['tour_startdate_id'])  # Replace with your fields and criteria
+            print("he ",existing_instance)
+            if existing_instance.exists():
+                return Response({'message': 'Instance already exists in the database'}, status=status.HTTP_401_UNAUTHORIZED)
+            else:
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
        
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response("serializer.errors", status=status.HTTP_400_BAD_REQUEST)
+
+        # return Response('', status=status.HTTP_400_BAD_REQUEST)
 
 
 
@@ -195,3 +235,48 @@ def alltour_view(request):
     tours=Tour.objects.all()
     data=SearchSerializer(tours,many=True)
     return Response(data=data.data,status=status.HTTP_200_OK)
+
+class DashBoard(APIView):
+    def get(self,request):
+        current_month_start = timezone.now().replace(day=1, hour=0, minute=0, second=0, microsecond=0)
+        next_month_start = (current_month_start + datetime.timedelta(days=31)).replace(day=1)
+        
+        tours = TourStartDate.objects.annotate(month=TruncMonth('start_date')).values('month').annotate(count=Count('id'))
+        admin = NewUser.objects.values('is_staff').annotate(count=Count('is_staff')).count()
+        role = NewUser.objects.filter(
+            is_staff=False
+        ).values('role').annotate(
+            count_value1=Count('id')
+        )
+        
+        data_role = {
+            'User': role[1]["count_value1"],
+            'Tourguide': role[0]["count_value1"],
+            'Admin': admin
+        }
+        
+        # data_role = {
+        #     'User': role[1]["count_value1"],
+        #     'Tourguide': role[0]["count_value1"],
+        #     'Admin': admin
+        # }
+        
+        last_logins = NewUser.objects.annotate(
+                month=ExtractMonth('last_login')
+            ).values('month').annotate(
+                login_count=Count(F('id'))
+            )
+
+       
+        tour_this_month = TourStartDate.objects.filter(
+            start_date__gte=current_month_start,start_date=current_month_start,
+            start_date__lt=next_month_start
+        )
+        
+        
+        tour_count_this_month = tour_this_month.count();
+        # tour_count_this_month_booking = Register.objects.filter(tour_startdate_id_id = tour_this_month.id).count()
+        return Response(data=role,status=status.HTTP_200_OK)
+    
+
+    

@@ -19,5 +19,6 @@ urlpatterns = [
     path('alltour',views.alltour_view),
     path('listCustomer/<str:tour_startdate_id>',views.listCustomer_view),
     path('detail/<str:id>/payment',views.booking_view),
-    
+    path('bookinglist/',views.list_tour_of_user),
+    path('dashboard/',DashBoard.as_view())
 ]   

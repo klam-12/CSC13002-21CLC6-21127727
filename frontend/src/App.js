@@ -20,6 +20,7 @@ const App = () => {
   //               localStorage.removeItem('refresh_token');
   //               localStorage.removeItem('user');
   const access_token = localStorage.getItem('access_token');
+  console.log(localStorage.getItem('access_token'));
   if (access_token) {
     try {
       axiosInstance
@@ -47,10 +48,11 @@ const App = () => {
       window.location.reload()
     }
     }
-    else{
+  else{
       localStorage.removeItem('access_token');
       localStorage.removeItem('refresh_token');
       localStorage.removeItem('user');
+      // window.location.href = '/logout';
       // window.location.reload();
     } 
 

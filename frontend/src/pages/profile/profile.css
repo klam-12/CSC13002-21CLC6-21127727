@@ -89,3 +89,14 @@
     padding: 0;
     margin: 15px 0px;
   }
+/* styles.css */
+.custom-link {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s, text-decoration 0.3s;
+}
+
+.custom-link:hover {
+text-decoration: underline;
+color: #777; /* Adjust the color for the hover state */
+}

@@ -4,6 +4,20 @@ import test from '../../assets/images/test.jpg'
 import TourCardButton from './tourCardButton';
 import { Rating } from '@mui/material';
 
+const split = (content) => {
+  const paragraphs = content.split('\\n');
+  console.log(paragraphs);
+  return (
+      <div>
+          {paragraphs.map((paragraph, index) => (
+              <p key={index}>
+                  {paragraph}
+                  <br />
+              </p>
+          ))}
+      </div>
+  );
+}
 const TourCard = (props) => {
   const post  = props.props;
   const imageUrl =  `http://127.0.0.1:8000${post.main_picture}`;
@@ -14,7 +28,7 @@ const TourCard = (props) => {
         <div className="tour-card-container">
           <h4 className="tour-card-name"><b> {post.from_location} - {post.to_location}</b></h4>
           <Rating name="read-only" value={post.avg_star} readOnly />
-            <p className="tour-info">{post.detail.substr(0, 150)}... </p>
+            <p className="tour-info">{split(post.detail.substr(0, 150))}... </p>
             <hr className="solid"/>
         </div>
         

@@ -8,7 +8,7 @@ const SuccessNotification = () => {
     const navigate = useNavigate();
 
     const handleOKClick = () => {
-      navigate(-1);
+        return navigate(-1) ? window.location.reload() : null;
     };
     return (
         <div className="notification">
