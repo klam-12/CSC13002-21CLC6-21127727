@@ -113,7 +113,7 @@ const ProfileCard = (props) => {
             <div className="profile-card-info-container">
               <label className="profile-label" for="profile-phone">Số điện thoại</label>
               <input className="profile-card-info" type="text" id="profile-phone" name="phone" 
-              value={user.phone}
+              value={formData.phone}
               readOnly={!isEditing}
               onChange={handleInputChange}></input> <br></br>
             </div>
@@ -137,7 +137,7 @@ const ProfileCard = (props) => {
             <div className="profile-card-info-container">
               <label className="profile-label" for="profile-address">Địa chỉ</label>
               <input className="profile-card-info" type="text" id="profile-address" name="address" 
-              value={user.address}
+              value={formData.address}
               readOnly={!isEditing}
               onChange={handleInputChange}></input> <br></br>
             </div>
