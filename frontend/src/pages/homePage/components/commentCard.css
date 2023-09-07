@@ -1,0 +1,65 @@
+.comment-card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    text-align: left;
+    font-family: 'Quicksand';
+
+    display: flex;
+    padding: 20px 0px;
+    gap: 20px;
+
+    width: 286px;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    flex-shrink: 0;
+  }
+  
+  /* On mouse-over, add a deeper shadow */
+  .comment-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  /* Add some padding inside the card container */
+  .comment-card-container {
+    padding: 2px 16px;
+  }
+
+  .comment-card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+  }
+  .comment-card-container{
+    display: inline-block;
+  }
+  
+  /* Add rounded corners to the top left and the top right corner of the image */
+  img {
+    border-radius: 5px 5px 0 0;
+    height: 286px;
+  }
+
+  /* Solid border */
+hr.solid {
+    border-top: 1px solid #868686;
+  }
+.comment-name-section{
+  display: inline-flex;
+}
+.comment-name{
+  color: #5D9C59;
+  margin: 0;
+  padding-left: 15px;
+}
+.comment-date{
+    font-size: 14px;  
+    font-style: normal;
+    color: #868686;
+    margin: 0;
+    padding-top: 7px;
+    padding-left: 15px;
+  }
+

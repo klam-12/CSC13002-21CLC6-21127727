@@ -1,0 +1,147 @@
+.detail-tour-herobanner-container{
+  position: relative;
+  width: 100%; 
+  height: 540px;
+}
+.detail-tour-herobanner{
+  width: 100%; 
+  height: 540px;
+  object-fit: cover;
+}
+.detail-tour-herobanner-text-container{
+  position: absolute;
+  width: 82%;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
+  top: 89%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(189, 189, 189, 0.50);
+}
+.detail-tour-herobanner-text {
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #FDFDFD;
+  margin: 0;
+  width: 100%;
+}
+
+.tour-info-section{
+    padding: 60px 120px 60px 120px;
+}
+.detail-tour-index{
+    padding: 14px 30px 14px 30px;
+    font-family: 'Quicksand';
+    background-color: #EBEBEB;
+    margin: 10px;
+    
+  }
+  .detail-tour-index-title{
+    color: #5D9C59;
+  }
+  .detail-tour-content li{
+    padding-bottom: 15px;
+  }
+.tour-info-container img{
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.tour-info-container p {
+    padding: 0;
+    margin: 0; 
+    font-size: 16px;
+}
+  .tour-info-title{
+    color: #5D9C59;
+  }
+  .detail-tour-index-button{
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 10px;
+    float: left;
+    font-weight: 600;
+    color: #F8F8F8;
+    background: var(--primary-color, #5D9C59);
+    box-shadow: 0px 4px 4px 0px rgba(93, 156, 89, 0.40);
+}
+.detail-tour-index-button:hover {
+    box-shadow: 0 8px 16px 0 rgba(93, 156, 89, 0.40);
+    background-color: rgba(93, 156, 89, 0.9);
+    cursor: pointer;
+  }
+.tour-feed-back-container{
+  padding: 60px 120px;
+}
+.tour-feed-back-input{
+  display: flex;
+  padding-bottom: 25px;
+  align-items: center;
+  gap: 30px;
+}
+.tour-feed-back-input input{
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+  .tour-feed-back{
+    display: flex;
+    padding-bottom: 25px;
+    align-items: center;
+    gap: 30px;
+  }
+  .tour-feed-back-divider{
+    width: 100%;
+    height: 2px;
+    margin-bottom: 60px;
+    background-color: #5D9C59;
+  }
+  .comment-bar{
+    margin: 6px 0px;
+    padding: 15px 20px;
+    width: 800px;
+    border: none;
+    border-radius: 10px;
+    background: var(--foundation-white-white-100, #F7F7F7);
+    display: inline-flex;
+    cursor: pointer;
+  }
+.tour-taken-list-container{
+  display: flex;
+  width: 800px;
+  padding: 40px 30px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #F4F4F4;
+  position: absolute;
+  z-index: 5;
+}
+.tour-taken-list-container h3{
+  font-size: 24px;
+  color: #5D9C59;
+  margin-bottom: 10px;
+}
+.tour-taken-list{
+  display: inline-flex;
+  padding: 5px 20px;
+  margin: 5px 0px;
+  width: 350px;
+  align-items: center;
+  gap: 30px;
+  background: #EEE;
+  box-shadow: 0px 4px 4px 0px rgba(93, 156, 89, 0.20);  
+}
+  .tour-taken-list-name{
+    color: #868686;
+    margin: 0;
+    padding-left: 15px;
+  }

@@ -1,0 +1,9 @@
+.home-page-search{
+    display: flex;
+    padding: 60px 0px;
+    align-items: center;
+    justify-content: center;
+}
+.home{
+    position: relative;
+}

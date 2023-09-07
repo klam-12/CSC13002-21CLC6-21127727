@@ -1,0 +1,37 @@
+.search-tour-section{
+    padding: 30px 120px 30px 120px;
+}
+.search-tour{
+    margin: 25px 0px;
+}
+
+.search-page-herobanner{
+    width: 100%;
+    object-fit: cover;
+    opacity: 50%;
+}
+.search-page-search-bar{
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    top: 30%;
+    left: 10%;
+    right: 10%;
+}
+.page-number-active{
+    padding: 0px 10px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: #5D9C59;
+    text-decoration: none;
+}
+.page-number{
+    padding: 0px 10px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: #CACACA;
+    text-decoration: none;
+}

@@ -1,0 +1,23 @@
+h1 {
+    text-align: center;
+    color: #5D9C59;
+}
+.homepage-section {
+    padding: 60px 120px 60px 120px;
+}
+.herobanner-container{
+    width: 100%; 
+    height: 540px;
+}
+.homepage-herobanner{
+    width: 100%; 
+    height: 540px;
+    object-fit: cover;
+}
+
+
+
+
+
+    
+   

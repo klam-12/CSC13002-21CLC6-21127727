@@ -1,0 +1,102 @@
+.profile-section{
+    padding: 60px 120px;
+    margin-bottom: 150px;
+}
+.profile-name-section{
+    padding: 20px 0px
+}
+.profile-name-container{
+    display: inline-block;
+    margin-left: 17px;
+    vertical-align: bottom;
+}
+.profile-name{
+    margin: 0;
+    color: #5D9C59;
+    font-weight: 700;
+    font-size: 20px;
+}
+.profile-avatar{
+    height: 100%;
+}
+.profile-info-section h3{
+    color: #3E3E3E;
+    font-size: 24px;
+    font-weight: 600;
+}
+.my-account-section{
+    padding-bottom: 20px;
+}
+.my-account-section a {
+    margin: 10px 40px;
+}
+.profile-title{
+    margin: 0;
+    color: var(--foundation-grey-grey-900, #3E3E3E);
+    font-size: 20px;
+    font-weight: 700;
+}
+.profile-title-info{
+    color: #868686;
+    margin: 0;
+    font-size: 16px;
+    padding: 5px 0px 10px 0px;
+}
+.profile-change-button{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: inline;
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 10px;
+    float: right;
+    font-weight: 600;
+    color: #F8F8F8;
+    background: var(--primary-color, #5D9C59);
+    box-shadow: 0px 4px 4px 0px rgba(93, 156, 89, 0.40);
+}
+.profile-change-button:hover {
+    box-shadow: 0 8px 16px 0 rgba(93, 156, 89, 0.40);
+    background-color: rgba(93, 156, 89, 0.9);
+    cursor: pointer;
+  }
+.profile-card{
+    padding: 20px;
+    position: relative;
+    background: var(--foundation-grey-grey-100, #EBEBEB);
+}
+.profile-card-info-container{
+    text-align: right;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+.profile-label{
+    float: left;
+}
+  .profile-card-info{
+    width: 80%;
+    margin: 0;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid var(--primary-color, #5D9C59);
+    background: var(--foundation-white-white-50, #FDFDFD);
+    cursor: pointer;
+  }
+  .taken-tour{
+    padding: 0;
+    margin: 15px 0px;
+  }
+/* styles.css */
+.custom-link {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s, text-decoration 0.3s;
+}
+
+.custom-link:hover {
+text-decoration: underline;
+color: #777; /* Adjust the color for the hover state */
+}
