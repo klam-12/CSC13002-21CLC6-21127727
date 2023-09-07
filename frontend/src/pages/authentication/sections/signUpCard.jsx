@@ -80,9 +80,9 @@ const SignUpCard = ({ onRegister }) => {
         <input className="authentication-info" type="text" id="full_name" name="full_name" placeholder="Họ và tên" required onChange={handleChange}></input> <br></br>
         <input className="authentication-info" type="email" id="email" name="email" placeholder="Email" required onChange={handleChange}></input> <br></br>
 				<div className="error-message">{errors.email}</div>
-        <input className="authentication-info" type="password" id="password" name="password" placeholder="Mật khẩu" required onChange={handleChange}></input> <br></br>
+        <input className="authentication-info" type="password" id="password" name="password" placeholder="Mật khẩu (Chiều dài 9-30 kí tự, gồm chữ và số)" required onChange={handleChange}></input> <br></br>
 				<div className="error-message">{errors.password}</div>
-        <input className="authentication-info" type="tel" id="phone" name="phone" placeholder="Số điện thoại" required onChange={handleChange}></input> <br></br>
+        <input className="authentication-info" type="tel" id="phone" name="phone" placeholder="Số điện thoại (gồm 10 chữ số)" required onChange={handleChange}></input> <br></br>
 				<div className="error-message">{errors.phone}</div>
         <input className="authentication-info" type="date" id="dob" name="birth_date" placeholder="Ngày sinh" required onChange={handleChange} style={{cursor: 'text'}}></input> <br></br>
         <select className="authentication-info" name="gender" id="gender" onChange={handleChange} style={{cursor: 'text'}}>

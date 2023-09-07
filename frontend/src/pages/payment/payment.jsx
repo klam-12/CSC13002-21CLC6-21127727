@@ -56,16 +56,16 @@ const Payment = () => {
         
         
         try {
-            const response = await axiosInstance.post(apiUrl,
+            const response = await axiosInstance.post(apiUrl, {
+              id_user: infPayment.posts['user_data'][0]['email'],
+              id_start_date: infPayment.posts['tour_data'][0]['start_date'],
+              id_tour: infPayment.posts['tour_data'][0]['tour_id'],
+            },
               {
                 headers: {
                   Authorization: `Bearer ${access_token}`,
                 },
-              }, {
-              id_user: infPayment.posts['user_data'][0]['email'],
-              id_start_date: infPayment.posts['tour_data'][0]['start_date'],
-              id_tour: infPayment.posts['tour_data'][0]['tour_id'],
-            });
+              });
           
             console.log(response);
             console.log(response.data);

@@ -35,7 +35,7 @@ const DetailTour = () => {
     return (
         <div>
             <NavBar></NavBar>
-            <TourHeroBanner image = {post[0].main_picture}></TourHeroBanner>
+            <TourHeroBanner image = {post[0]}></TourHeroBanner>
             <TourInfo props = { post } ></TourInfo>
             <TourFeedBack></TourFeedBack>
             <Footer></Footer>

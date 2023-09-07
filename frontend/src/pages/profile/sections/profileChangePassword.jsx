@@ -78,12 +78,12 @@ const ChangePasswordCard = ({props}) => {
 
             <div className="profile-card-info-container" style={{marginTop: '35px', marginBottom: '35px'}}>
               <label className="profile-label" for="profile_old_password">Mật khẩu cũ</label>
-                <input className="profile-card-info" type="text" id="profile_old_password" name="profile_old_password" required onChange={handleChange}></input> <br></br>
+                <input className="profile-card-info" type="password" id="profile_old_password" name="profile_old_password" required onChange={handleChange}></input> <br></br>
             </div>
 
             <div className="profile-card-info-container">
               <label className="profile-label" for="profile_new_password">Mật khẩu mới</label>
-              <input className="profile-card-info" type="text" id="profile_new_password" name="profile_new_password" required onChange={handleChange}></input> <br></br>
+              <input className="profile-card-info" type="password" id="profile_new_password" name="profile_new_password" required onChange={handleChange}></input> <br></br>
             </div>
         </form>
       </div>

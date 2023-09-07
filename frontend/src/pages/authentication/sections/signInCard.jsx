@@ -73,7 +73,7 @@ const SignInCard = () => {
 	};
     return (
     <div className="authentication-card">
-        <h2 className="authentication-title">ĐĂNG NHẬP</h2>
+        
         <form className="authentication-form">
         <h2 className="authentication-title">ĐĂNG NHẬP</h2> 
             <input className="authentication-info" type="text" id="email" name="email" placeholder="Nhập vào đây" autoFocus onChange={handleChange}></input> <br></br>
